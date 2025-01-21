@@ -1,0 +1,44 @@
+.text {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.text1 {
+  color: red;
+  background-color: rgb(219, 219, 219);
+  padding: 10px 20px;
+  font-size: 35px;
+  font-weight: 900;
+  height: 40px;
+  display: flex;
+  text-align: center;
+  box-shadow: 8px 8px 15px black;
+}
+
+.text2 {
+  color: white;
+  background-color: rgb(255, 187, 61);
+  padding: 30px 10px 50px 20px;
+  margin: 50px;
+  font-size: 28px;
+  height: 70px;
+  font-weight: 100;
+  box-shadow: 8px 8px 15px black;
+}
+
+.text3 {
+  color: green;
+  background: linear-gradient(rgb(42, 177, 114), white);
+  padding: 30px;
+  width: 30px;
+  height: 30px;
+  font-size: 35px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 5px 10px black;
+}
+
+.img {
+  box-shadow: 10px 10px 15px black;
+  margin: 50px;
+}
