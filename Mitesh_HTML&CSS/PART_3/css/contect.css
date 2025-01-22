@@ -1,0 +1,62 @@
+.contectForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contectForm > fieldset {
+  margin: 10px;
+  padding: 20px;
+}
+
+#questions {
+  float: inline-start;
+}
+
+input,
+textarea {
+  padding: 10px 5px;
+  font-size: 20px;
+  margin: 10px 10px 10px 25px;
+  width: 300px !important;
+  border-radius: 5px;
+}
+
+input:hover,
+textarea:hover,
+button:hover {
+  transition: 0.1s ease-in all;
+  padding: 11px 6px;
+  background-color: rgb(212, 231, 248);
+}
+
+.buttons {
+  display: flex;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 5px;
+  margin: 20px 10px 0 0;
+  width: 50%;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.social-handles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.social-handles > div > a > img {
+  width: 100px;
+  height: 100px;
+}

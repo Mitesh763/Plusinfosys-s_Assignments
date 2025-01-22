@@ -8,14 +8,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        margin: 5% 0 5% 35%;
+      }
+    </style>
     <title>Part-1</title>
   </head>
   <body>
-    <h2>Fill your detail</h2>
-    <form>
-      <label for=""></label>
-    </form>
+    <center>
+      <h2>Fill your detail</h2>
+      <big> It's easy and quick </big>
+    </center>
 
-    <footer>All right reserved &#xA9;</footer>
+    <table border="1">
+      <form>
+        <tr>
+          <th><span>Logo</span></th>
+          <td><img src="logo.jfif" alt="logo" /></td>
+        </tr>
+
+        <tr>
+          <th><span>Introduction</span></th>
+          <td>
+            <video height="500x" width="200px" controls>
+              <source src="intro.mp4" type="video/mp4" />
+            </video>
+          </td>
+        </tr>
+
+        <tr>
+          <th><span>canvas intro</span></th>
+          <td>
+            <canvas
+              id="shape"
+              width="200px"
+              height="100px"
+              style="border: 2px solid rgb(153, 153, 153)"
+              >Canvas doesn't support</canvas
+            >
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <label for="name">Name:</label>
+          </th>
+          <td>
+            <input type="text" name="name" placeholder="Enter your name:" />
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <label for="email">E-mail:</label>
+          </th>
+          <td>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your Email Address:"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <label for="Address">Address:</label>
+          </th>
+          <td>
+            <textarea
+              name="Address"
+              cols="25"
+              rows="5"
+              placeholder="Enter Address:"
+            ></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <span>Contry</span>
+          </th>
+          <td>
+            <select name="contry">
+              <option value="select">select</option>
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+              <option value="uae">UAE</option>
+              <option value="rusia">Rusia</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <label for="zender">Zender</label>
+          </th>
+          <td>
+            <input type="radio" name="zender" />Male
+            <input type="radio" name="zender" />Female
+            <input type="radio" name="zender" />Other
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <label for="hobies">Hobies</label>
+          </th>
+          <td>
+            <input type="checkbox" name="reading" />Reading
+            <input type="checkbox" name="writting" />writting
+            <input type="checkbox" name="playing" />playing
+            <input type="checkbox" name="singing" />singing
+            <input type="checkbox" name="other" />other
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <p>
+              <abbr title="Terms and Conditions of PluInfosys">T&C</abbr> Read
+            </p>
+          </th>
+          <td>
+            <a href="https://www.plusinfosys.com/about-us">visit</a>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <span>Buttons</span>
+          </th>
+          <td>
+            <button>Cancel</button>
+            <button>Submit</button>
+          </td>
+        </tr>
+      </form>
+    </table>
+    <center>
+      <footer>All right reserved &#xA9;</footer>
+    </center>
+
+    <script>
+      let canvasShape = document.getElementById("shape");
+      let shape = canvasShape.getContext("2d");
+      shape.fillStyle("#00088");
+      shape.fillRect(10, 20, 10, 20);
+    </script>
   </body>
 </html>

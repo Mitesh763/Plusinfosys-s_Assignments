@@ -1,0 +1,29 @@
+.service {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.service > details > details {
+  margin: 10% 0 0 10%;
+}
+
+.web-img > img {
+  border-radius: 10px;
+}
+
+.devops-img > details {
+  margin: 0;
+}
+
+.devops-img > img {
+  width: 60%;
+  height: 60%;
+}
+
+.web-tech,
+.app-tech {
+  display: flex;
+  align-items: center;
+}
