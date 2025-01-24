@@ -1,29 +1,36 @@
+.services {
+  margin-top: 6rem;
+}
 .service {
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
-  gap: 2rem;
+  gap: 7rem;
+  margin: 1.3rem 2rem 1.3rem 2rem;
+}
+
+.service:nth-child(2) {
+  flex-direction: row-reverse;
+  gap: 20rem;
 }
 
 .service > details > details {
   margin: 10% 0 0 10%;
 }
 
-.web-img > img {
+.web-img > img,
+.devops-img > img {
   border-radius: 10px;
 }
 
-.devops-img > details {
-  margin: 0;
-}
-
 .devops-img > img {
-  width: 60%;
-  height: 60%;
+  width: 474px;
+  height: 316px;
 }
 
 .web-tech,
-.app-tech {
+.app-tech,
+.devops-tech {
   display: flex;
   align-items: center;
 }

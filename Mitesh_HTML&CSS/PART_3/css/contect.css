@@ -16,11 +16,12 @@
 
 input,
 textarea {
-  padding: 10px 5px;
-  font-size: 20px;
+  padding: 11px 10px;
+  font-size: 19px;
   margin: 10px 10px 10px 25px;
   width: 300px !important;
-  border-radius: 5px;
+  border-radius: 15px;
+  border: none;
 }
 
 input:hover,
@@ -28,7 +29,15 @@ textarea:hover,
 button:hover {
   transition: 0.1s ease-in all;
   padding: 11px 6px;
-  background-color: rgb(212, 231, 248);
+  color: rgb(255, 255, 255);
+  background-color: rgb(56, 58, 59);
+}
+
+input:focus,
+textarea:hover,
+button:hover {
+  outline: none;
+  border: none;
 }
 
 .buttons {
@@ -38,10 +47,11 @@ button:hover {
 button {
   font-size: 20px;
   padding: 10px 5px;
-  margin: 20px 10px 0 0;
+  margin: 20px 10px 0 25px;
   width: 50%;
   justify-content: space-evenly;
   border-radius: 5px;
+  border: none;
 }
 
 h4 {
@@ -59,4 +69,12 @@ h4 {
 .social-handles > div > a > img {
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+}
+
+.social-handles > div > a > img:hover {
+  transition: 0.2s ease-in-out all;
+  box-shadow: 10px 10px 10px rgb(61, 61, 61);
+  width: 102px;
+  height: 102px;
 }

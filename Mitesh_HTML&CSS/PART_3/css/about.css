@@ -12,12 +12,17 @@
 }
 
 .about_intro > p {
-  width: 400px;
+  width: 402px;
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: left;
   font-size: 18px;
+  margin: 50px;
+}
+
+.about_intro > p:hover {
+  text-shadow: 1px 1px rgb(167, 167, 167);
 }
 
 .about_value > em {
@@ -34,4 +39,5 @@
 .about_value > ul > li:hover {
   transition: 0.3s all;
   font-size: 21px;
+  font-weight: 600;
 }

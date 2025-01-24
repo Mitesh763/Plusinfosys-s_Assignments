@@ -3,14 +3,16 @@
 }
 
 body {
-  margin-top: 2em;
+  margin-top: 6em;
   position: relative;
   min-height: 100%;
+  color: #0a0a0a;
+  background-color: rgb(219, 219, 219);
 }
 
 .navbar {
-  border-bottom: 2px solid rgb(53, 52, 52);
-  background-color: rgb(61, 61, 61);
+  border-bottom: 2px solid rgb(233 117 82);
+  background-color: rgb(61 61 61);
   margin-bottom: 2em;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
@@ -23,8 +25,9 @@ body {
 .navbar > ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 li {
@@ -32,9 +35,15 @@ li {
 }
 
 .navbar > ul > li > a {
-  color: white;
+  color: #e5e1e1;
   text-decoration: none;
+  font-weight: 800;
   cursor: pointer;
+}
+
+.navbar > ul > li > a > img {
+  width: 35px;
+  border-radius: 51%;
 }
 
 .navbar > ul > li:hover {
@@ -45,6 +54,7 @@ li {
 
 main {
   margin-top: 4rem;
+  min-height: 75vh;
 }
 
 .welcome {
@@ -72,17 +82,24 @@ main {
 }
 
 .welcome img:hover {
-  box-shadow: 10px 10px 10px gray;
-  transition: 0.4s ease-in all;
+  box-shadow: -20px -20px 20px 2px rgb(82, 81, 81);
+  rotate: -5deg;
+  transition: 0.2s ease-in-out all;
+}
+
+.home_msg:hover {
+  rotate: 5deg;
+  transition: 0.2s ease-in-out all;
 }
 
 footer {
-  color: white;
+  color: #e5e1e1;
   background-color: rgb(61, 61, 61);
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   margin-top: 2rem;
   padding: 10px;
+  font-weight: 800;
   text-align: center;
   position: relative;
   width: 100%;
