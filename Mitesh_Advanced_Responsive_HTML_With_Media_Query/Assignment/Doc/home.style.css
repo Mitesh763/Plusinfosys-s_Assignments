@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .mainB {
@@ -73,6 +73,7 @@ body {
   list-style: none;
   gap: 25px;
   align-items: center;
+  flex-wrap: wrap;
   font-size: 16px;
   color: white;
   padding: 0;
@@ -101,13 +102,16 @@ body {
 .introDiscription > h2 {
   color: #ffffff;
   margin: 0;
-  font-size: 48px;
+  font-size: 3em; /* 48px; */
   font-weight: 600;
+  flex-wrap: wrap;
 }
 
 .introDiscription > p {
   color: #07b1c7;
   font-size: 33px;
+  flex-wrap: wrap;
+  word-wrap: break-word;
 }
 
 .dropdown {
@@ -131,7 +135,7 @@ body {
 .dd_div2 > input {
   font-size: 21px;
   border: 2px solid white;
-  padding: 0 50px !important;
+  padding: 0 !important;
   display: flex;
   align-items: center;
   text-align: center;
@@ -172,7 +176,7 @@ input[type="text"]:focus::placeholder {
 .dd_div2 > input {
   border-left: none !important;
   border-right: none !important;
-  padding: 1.1% 70px !important;
+  padding: 0 !important;
   color: white;
   background-color: transparent !important;
 }
@@ -193,8 +197,9 @@ input[type="text"]:focus::placeholder {
 }
 
 .tendingPart > h2,
-.featuresDestination > h2 {
-  margin-top: 0 !important;
+.featuresDestination > h2,
+.affordable > h2 {
+  margin: 0 !important;
   padding: 0 !important;
   font-style: normal !important;
   font-size: 36px !important;
@@ -206,7 +211,7 @@ input[type="text"]:focus::placeholder {
 
 .item {
   height: 20em;
-  width: 300px !important;
+  width: 350px !important;
 }
 
 .item1 {
@@ -237,7 +242,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 4rem !important;
+  margin-left: 6rem !important;
 }
 
 .item3 {
@@ -247,7 +252,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 8rem !important;
+  margin-left: 12rem !important;
 }
 
 .item4 {
@@ -257,7 +262,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 12rem !important;
+  margin-left: 18rem !important;
 }
 .item5 {
   background: url("../Doc//images/thumb05.jpg") !important;
@@ -266,7 +271,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 16rem !important;
+  margin-left: 24rem !important;
 }
 .item6 {
   background: url("../Doc//images/thumb06.jpg") !important;
@@ -275,7 +280,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 20rem !important;
+  margin-left: 30rem !important;
 }
 .item7 {
   background: url("../Doc//images/thumb07.jpg") !important;
@@ -284,7 +289,20 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: 24rem !important;
+  margin-left: 36rem !important;
+}
+
+.para2 {
+  margin-top: 10px !important;
+}
+
+.item_desc > h2,
+.item_desc > .para1 {
+  margin: 0 !important;
+}
+
+.item_desc > h4 {
+  margin-bottom: 10px !important;
 }
 
 .item8 {
@@ -303,7 +321,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -2rem !important;
+  margin-left: -1.5rem !important;
 }
 
 .item10 {
@@ -313,7 +331,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -4rem !important;
+  margin-left: -3rem !important;
 }
 
 .item11 {
@@ -323,7 +341,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -6rem !important;
+  margin-left: -4.5rem !important;
 }
 .item12 {
   background: url("../Doc//images/thumb14.jpg") !important;
@@ -332,7 +350,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -8rem !important;
+  margin-left: -6rem !important;
 }
 .item13 {
   background: url("../Doc//images/thumb15.jpg") !important;
@@ -341,7 +359,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -10rem !important;
+  margin-left: -7.5rem !important;
 }
 .item14 {
   background: url("../Doc//images/thumb21.jpg") !important;
@@ -350,7 +368,7 @@ div.upperLayer {
   background-attachment: local !important;
   background-position: top !important;
   height: 16em !important;
-  margin-left: -16rem !important;
+  margin-left: -9rem !important;
 }
 
 .carousel-container {
@@ -359,9 +377,10 @@ div.upperLayer {
 
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 41%;
   transform: translateY(-50%);
-  background-color: rgb(104, 104, 104);
+  background-color: rgb(139 134 134);
+  opacity: 0.8;
   color: rgb(212, 212, 212);
   border: none;
   padding: 14px 19px;
@@ -385,7 +404,7 @@ div.upperLayer {
 /* . */
 
 .item_desc {
-  padding-top: 32px !important;
+  padding-top: 22% !important;
   padding-bottom: 0 !important;
   text-align: left;
   display: flex;
@@ -398,6 +417,7 @@ div.upperLayer {
   font-size: 13.5px;
   color: #e53b51;
   background-color: white;
+  padding: 2px 8px;
   border: none;
   border-radius: 5px;
 }
@@ -427,7 +447,7 @@ div.upperLayer {
 
 .item_feature {
   height: 12em !important;
-  width: 225px !important;
+  width: 230px !important;
 }
 
 .item_desc_feature > p,
@@ -444,4 +464,286 @@ div.upperLayer {
 .item_desc_feature > h2 {
   font-size: 21px;
   color: white !important;
+}
+
+.affordable {
+}
+
+.footer > .logo > img {
+  width: 200px !important;
+}
+
+.footer {
+  margin-top: 0 !important;
+  background: #454848 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center !important;
+  padding: 1.5rem 3rem !important;
+}
+
+.footer > div.faqs > ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  text-align: center !important;
+  align-items: center !important;
+  font-size: 16px;
+  color: white;
+  margin-top: 20px;
+  gap: 1.5rem;
+}
+
+.items_afford {
+  height: 20em !important;
+  width: 250px !important;
+}
+
+.item16 {
+  background: url("../Doc/images/thumb16.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  /* margin-left: 5rem !important; */
+}
+
+.item17 {
+  background: url("../Doc//images/thumb17.jpg") !important;
+  object-fit: contain;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+
+.item18 {
+  background: url("../Doc//images/thumb18.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+
+.item19 {
+  background: url("../Doc//images/thumb19.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+.item20 {
+  background: url("../Doc//images/thumb20.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+.item21 {
+  background: url("../Doc//images/thumb22.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+.item22 {
+  background: url("../Doc//images/thumb23.jpg") !important;
+  background-size: cover !important;
+  background-repeat: round !important;
+  background-attachment: local !important;
+  background-position: top !important;
+  height: 16em !important;
+  margin-left: 0rem !important;
+}
+
+.item_afford {
+  padding-top: 46% !important;
+  padding-left: 5%;
+  position: relative;
+  z-index: 1000;
+}
+
+.item_afford > span {
+  font-size: 15px;
+  margin: 0 !important;
+  color: white !important;
+}
+
+.item_afford > .para12 {
+  margin: 3px 0 !important;
+  font-size: 27px !important;
+  color: #ff0021 !important;
+  font-family: math !important;
+  font-weight: 900;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 149px;
+  border-radius: 5px;
+  padding: 0px 5px !important;
+}
+
+.item_afford > h5 {
+  margin: 0 !important;
+  font-size: 18px;
+  color: white !important;
+}
+
+.items_afford > h6 {
+  margin: 0 !important;
+  font-size: 13.5px;
+  color: red !important;
+  border: 2px solid black;
+}
+
+.items_afford > .para2 {
+  margin: 0 !important;
+  font-size: 15px;
+  color: blue !important;
+}
+
+@media (min-width: 900px) and (max-width: 1220px) {
+  body {
+    border: 2px solid red;
+  }
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 89% !important;
+  }
+
+  .introDiscription {
+    margin-top: 18%;
+  }
+
+  .dropdown {
+    width: 60% !important;
+    margin-bottom: 20px;
+    margin-right: 10%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  body {
+    border: 2px solid blue;
+    overflow-x: hidden;
+  }
+  .mainB {
+    /* height: 100vh; */
+    width: 100vw;
+  }
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100% !important;
+  }
+
+  .introDiscription {
+    margin-top: 15%;
+  }
+
+  .dropdown {
+    width: 30% !important;
+    margin-right: 47%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    border: 2px solid green;
+  }
+
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 96% !important;
+  }
+
+  .introDiscription {
+    margin-top: 15%;
+  }
+
+  .dropdown {
+    flex-direction: column;
+    width: 85% !important;
+    margin-left: 22%;
+  }
+
+  .dropdown1,
+  .dropdown2,
+  .dd_div2,
+  .dd_div4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    text-align: center !important;
+    width: 76vw;
+    height: 2.7rem;
+    border: none;
+    color: gray !important;
+    background-color: white !important;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    /* gap: 2rem; */
+  }
+  .dropdown1 > h2,
+  .dropdown2 > h2,
+  .dd_div2 > h2 {
+    margin: 1rem 2rem 1rem 1rem;
+    color: rgb(255, 81, 81) !important;
+    float: left;
+  }
+
+  .dd_div4 {
+    /* margin-top: 3rem; */
+    width: 68vw;
+  }
+
+  .dropdown1 > select,
+  .dropdown2 > select,
+  .dd_div2 > input {
+    border: none;
+    height: 90%;
+    color: gray !important;
+    background-color: white !important;
+  }
+
+  input[type="text"]::placeholder {
+    color: gray;
+    text-align: center;
+  }
+
+  input[type="text"]:focus::placeholder {
+    color: gray;
+    text-align: center;
+  }
+
+  /* .dropdown2 > select {
+    margin-left: -1%;
+  }
+
+  .dd_div2 > input {
+    margin-left: -3%;
+  } */
+
+  .dd_div4 > button {
+    margin-left: -9px !important;
+    width: 89.5%;
+    border-radius: 10px;
+    height: 20%;
+    border: none;
+  }
 }
