@@ -1,0 +1,171 @@
+<style>
+      .range-container {
+        position: relative;
+        width: 300px;
+      }
+
+      .range-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 6px;
+        background: #ddd;
+        border-radius: 3px;
+        position: absolute;
+        top: 10px;
+        pointer-events: none;
+      }
+
+      .range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 20px;
+        background: #007bff;
+        cursor: pointer;
+        pointer-events: all;
+        position: relative;
+        border-radius: 2px;
+      }
+
+      .range-slider::-moz-range-thumb {
+        width: 14px;
+        height: 20px;
+        background: #007bff;
+        cursor: pointer;
+        pointer-events: all;
+        border-radius: 2px;
+      }
+
+      .range-highlight {
+        position: absolute;
+        height: 6px;
+        background: #007bff;
+        border-radius: 3px;
+        top: 10px;
+      }
+    </style>
+
+
+
+
+    <div class="range-container">
+        <!-- Highlighted selected area -->
+        <div class="range-highlight"></div>
+
+        <!-- Two range sliders for min and max -->
+        <input type="range" min="0" max="100" value="20" class="range-slider" id="rangeMin">
+        <input type="range" min="0" max="100" value="80" class="range-slider" id="rangeMax">
+    </div>
+
+    <script>
+        const rangeMin = document.getElementById("rangeMin");
+        const rangeMax = document.getElementById("rangeMax");
+        const highlight = document.querySelector(".range-highlight");
+
+        function updateHighlight() {
+            let minVal = parseInt(rangeMin.value);
+            let maxVal = parseInt(rangeMax.value);
+
+            // Ensure min does not exceed max
+            if (minVal >= maxVal) {
+                rangeMin.value = maxVal - 1;
+                minVal = maxVal - 1;
+            }
+
+            // Calculate highlight position
+            const minPercent = (minVal / 100) * 100;
+            const maxPercent = (maxVal / 100) * 100;
+
+            highlight.style.left = `${minPercent}%`;
+            highlight.style.width = `${maxPercent - minPercent}%`;
+        }
+
+        rangeMin.addEventListener("input", updateHighlight);
+        rangeMax.addEventListener("input", updateHighlight);
+
+        // Initialize highlight
+        updateHighlight();
+    </script>
+
+
+
+<div
+        class="container-fluid py-3 secondContainer pt-0"
+        style="background-color: rgb(231, 231, 231)"
+      >
+        <div class="container row">
+          <!-- <div class="row align-items-end"> -->
+          <div class="row">
+            <div class="col-lg-3 col-md-2">
+              <span class="color-blue fw-bold">Casuse</span>
+            </div>
+            <div class="col-md-4">
+              <span class="color-blue fw-bold">Country</span>
+            </div>
+            <div class="col-md-4">
+              <span class="color-blue fw-bold">Activity</span>
+            </div>
+            <div class="col-md-1">&nbsp;</div>
+          </div>
+          <br />
+          <div class="col-lg-3 col-md-2 col-sm-6 pe-1">
+            <!-- <label for="cause" class="color-blue fw-bold mb-3">Cause</label> -->
+            <div class="d-flex flex-wrap ps-0">
+              <div class="form-check me-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="volunteer"
+                  id="inlineCheckbox1"
+                />
+                <label class="form-check-label" for="inlineCheckbox1"
+                  >Volunteer</label
+                >
+              </div>
+              <div class="form-check me-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="teach"
+                  id="teach"
+                />
+                <label class="form-check-label" for="teach">Teach</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="intern"
+                  id="intern1"
+                />
+                <label class="form-check-label" for="intern1">Intern</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 row">
+            <div class="col-lg-4 col-md-4 col-sm-6 ps-0">
+              <!-- <label
+              for="searchCountry"
+              class="color-blue fw-bold text-start d-block"
+              >Country</label
+            > -->
+              <input
+                type="text"
+                class="form-control bg-transparent"
+                id="searchCountry"
+                placeholder="Search Country"
+              />
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 ps-0">
+              <!-- <label
+              for="activitySelect"
+              class="color-blue fw-bold text-start d-block"
+              >Activity</label
+            > -->
+              <select id="activitySelect" class="form-select bg-transparent">
+                <option selected>Animal Conservation</option>
+                <option>Teach English</option>
+                <option>Medical Volunteering</option>
+              </select>
+            </div>

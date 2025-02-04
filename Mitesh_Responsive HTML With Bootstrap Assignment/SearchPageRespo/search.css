@@ -1,0 +1,145 @@
+.editBtn,
+.crossBtn {
+  display: none;
+}
+
+.color-blue {
+  color: rgb(46 196 215);
+  border-color: rgb(46 196 215);
+}
+
+.bgColor-blue {
+  background-color: rgb(46 196 215);
+}
+
+.offcanvas.offcanvas-top {
+  top: 165px !important;
+  height: 47vh;
+}
+
+.offcanvas-backdrop {
+  position: fixed;
+  top: 180px !important;
+}
+
+.offcanvas-backdrop.show {
+  opacity: 0.4;
+}
+
+.offcanvas-backdrop {
+  background-color: white !important;
+}
+
+.tabBtn {
+  display: none;
+}
+
+.small-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+}
+
+.ui-slider-horizontal {
+  height: 0.6em;
+}
+.ui-slider-horizontal {
+  margin-bottom: 15px;
+  width: 100%;
+}
+.ui-widget-header {
+  background: #2ec4d7 !important;
+}
+
+.price-range-search {
+  width: 40.5%;
+  background-color: #f9f9f9;
+  border: 1px solid #6e6666;
+  min-width: 40%;
+  display: inline-block;
+  height: 32px;
+  border-radius: 5px;
+  float: left;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.price-range-field {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-family: myFont;
+  font: normal 14px Arial, Helvetica, sans-serif;
+  height: 26px;
+  padding: 5px;
+}
+
+.btn-clicked:hover {
+  color: white !important;
+  background-color: rgb(46 196 215) !important;
+  border-color: white;
+}
+
+.resultBtn:hover {
+  color: rgb(46 196 215) !important;
+  background-color: white !important;
+  border-color: rgb(46 196 215) !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: red !important;
+}
+
+.BtnH:hover {
+  font-weight: 600;
+  text-shadow: 2px 2px gray;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .tabBtn {
+    display: inline;
+  }
+  .deskBtn {
+    display: none;
+  }
+
+  .offcanvas.offcanvas-top {
+    left: 60% !important;
+    height: 100vh;
+    top: 205px !important;
+  }
+
+  .offcanvas-backdrop {
+    top: 205px !important;
+  }
+
+  .row,
+  .col-lg-4 {
+    border: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabBtn,
+  .notMobile {
+    display: none;
+  }
+  .deskBtn,
+  .crossBtn,
+  .editBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .offcanvas.offcanvas-top {
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh;
+  }
+  .row,
+  .col-lg-4 {
+    border: none !important;
+  }
+}

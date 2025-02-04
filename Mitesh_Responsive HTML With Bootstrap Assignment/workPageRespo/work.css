@@ -1,0 +1,430 @@
+html,
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+.color-blue {
+  color: rgb(46 196 215);
+}
+
+.bg-blue-round {
+  background-color: rgb(46 196 215);
+}
+
+.homeContent {
+  align-items: start !important;
+}
+
+.fs-oneeight {
+  font-size: 18px;
+}
+
+.color-red {
+  color: #bb273b;
+}
+
+.bg-red {
+  background-color: #bb273b;
+}
+
+.watchBtn:hover {
+  cursor: pointer;
+  background-color: rgb(46 196 215) !important;
+}
+
+.color-gray {
+  color: gray;
+}
+
+.homeImg {
+  background-image: url("./images/bg.png"), url("./images/banner2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+main {
+  width: 100vw;
+  height: 100%;
+}
+
+.img-bg {
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.description1 {
+  margin-bottom: 10%;
+}
+
+.description2 {
+  margin-bottom: 20%;
+}
+
+.description3 {
+  margin-bottom: 16%;
+}
+
+.number-content {
+  font-size: 104px;
+  padding: 0.1rem 2rem;
+}
+
+.line1 {
+  position: absolute !important;
+  width: 20vw;
+  left: 8%;
+  top: 27%;
+  height: 100%;
+}
+
+.line2 {
+  width: 50% !important;
+  position: absolute !important;
+  left: 25%;
+  top: 110%;
+}
+
+.line3 {
+  position: absolute !important;
+  left: 11%;
+  top: 39%;
+}
+
+.f-twotwo {
+  font-size: 22.5px;
+}
+
+.f-onesix {
+  font-size: 16px;
+}
+
+.f-onefour {
+  font-size: 14px;
+}
+
+.f-foureight {
+  font-size: 48px;
+}
+
+.f-threethreee {
+  font-size: 33px;
+}
+
+.f-fourthree {
+  font-size: 43px;
+}
+
+.f-fivefour {
+  font-size: 54px;
+}
+
+.f-threesix {
+  font-size: 36px;
+}
+
+.f-exLarge {
+  font-size: 104px;
+}
+
+.deskImg {
+  width: 35vw;
+}
+
+.tabImg,
+.mobileImg,
+.tabImg3 {
+  display: none;
+}
+
+.deskImg2 {
+  left: 3% !important;
+  top: 34%;
+}
+
+.img4 {
+  top: 19%;
+}
+
+.deskImg3 {
+  top: -80%;
+}
+
+.journeyBtn {
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+button:hover {
+  font-weight: 700;
+  color: #bb273b !important;
+  background-color: transparent !important;
+  border-color: 1px solid #bb273b !important;
+}
+
+.btnA:hover {
+  color: #bb273b !important;
+  font-weight: 700;
+  background-color: white !important;
+  border: 1px solid #bb273b !important;
+  border-radius: 20px;
+  cursor: pointer !important;
+  transition: 0.2s all;
+}
+
+.m-topC {
+  margin-top: -3% !important;
+}
+
+.p-s-zero {
+  padding-left: 0 !important;
+}
+
+.mobileCSS {
+  margin-bottom: 0.1px !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #dee2e68c !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("./images/menu.svg");
+}
+
+@media (min-width: 992px) and (max-width: 1220px) {
+  .f-onesix {
+    font-size: 14px;
+    padding: 17px;
+  }
+  .f-foureight {
+    font-size: 46px;
+  }
+  .f-threethreee {
+    font-size: 31px;
+  }
+  .f-fourthree {
+    font-size: 41px;
+  }
+  .f-fivefour {
+    font-size: 52px;
+  }
+  .f-exLarge {
+    font-size: 94px !important;
+  }
+  .f-threesix {
+    font-size: 34px;
+  }
+  .f-twotwo {
+    font-size: 20px;
+  }
+  .fs-oneeight {
+    font-size: 16px;
+  }
+  .homeImg {
+    height: 100%;
+  }
+  .description1 {
+    margin-bottom: 7%;
+  }
+  .description2 {
+    margin-bottom: 25%;
+  }
+  .description3 {
+    margin-bottom: 18%;
+  }
+  .deskImg2 {
+    left: 2% !important;
+    top: 30%;
+  }
+  .line1 {
+    width: 18vw;
+    left: 10%;
+    top: 23%;
+    height: 95%;
+  }
+
+  .line2 {
+    left: 30%;
+    top: 110%;
+  }
+
+  .line3 {
+    position: absolute !important;
+    left: 6%;
+    top: 35%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  footer {
+    display: none !important;
+  }
+  .f-onesix {
+    font-size: 11.5px;
+    border: none !important;
+    padding: 10px !important;
+  }
+  .f-foureight {
+    font-size: 41.5px;
+  }
+  .f-threethreee {
+    font-size: 26px;
+  }
+  .f-fourthree {
+    font-size: 30px;
+  }
+  .f-fivefour {
+    font-size: 42px;
+  }
+  .f-exLarge {
+    font-size: 75px !important;
+  }
+  .f-threesix {
+    font-size: 27px;
+  }
+  .f-twotwo {
+    font-size: 15px;
+  }
+  .fs-oneeight {
+    font-size: 11px;
+  }
+  .homeImg {
+    height: 100%;
+  }
+  .deskImg,
+  .deskImg3 {
+    display: none;
+  }
+  .tabImg,
+  .tabImg3 {
+    display: flex;
+  }
+  .tabImg {
+    width: 35vw;
+  }
+  .line1,
+  .line2,
+  .line3 {
+    display: none;
+  }
+  .number-content {
+    padding: 0.1rem 1.5rem;
+  }
+  .m-topC {
+    margin-top: -2.5% !important;
+  }
+  .deskImg2 {
+    left: 5% !important;
+    top: 0;
+    width: 40%;
+  }
+  .m-topC {
+    margin-top: -4% !important;
+  }
+  .description2 {
+    margin-bottom: 8%;
+  }
+  .description3 {
+    margin-bottom: 4%;
+  }
+  .img4 {
+    top: 19%;
+    width: 47vw;
+  }
+}
+
+@media (max-width: 767px) {
+  footer {
+    display: none !important;
+  }
+  .f-onesix {
+    font-size: 9px;
+    border: none !important;
+    padding: 5px !important;
+  }
+  .f-foureight {
+    font-size: 36px;
+  }
+  .f-threethreee {
+    font-size: 22px;
+  }
+  .f-fourthree {
+    font-size: 26px;
+  }
+  .f-fivefour {
+    font-size: 30px;
+  }
+  .f-exLarge {
+    font-size: 55px !important;
+  }
+  .f-threesix {
+    font-size: 23px;
+  }
+  .f-twotwo {
+    font-size: 12px;
+  }
+  .fs-oneeight {
+    font-size: 12.5px;
+  }
+  .homeImg {
+    height: 100%;
+  }
+  .line1,
+  .line2,
+  .line3,
+  .tabImg,
+  .deskImg,
+  .deskImg3 {
+    display: none;
+  }
+  .mobileImg,
+  .tabImg3 {
+    display: flex;
+    width: 83%;
+    top: 15% !important;
+  }
+  .m-topC-m {
+    top: 20% !important;
+  }
+  .number-content {
+    padding: 0.1rem 0.8rem;
+  }
+  .mobileCSS {
+    margin-top: 5% !important;
+    margin-bottom: 65% !important;
+  }
+  .mobileCSS1 {
+    margin-top: 3% !important;
+    margin-bottom: 100% !important;
+  }
+  .deskImg2 {
+    position: absolute;
+    left: 33% !important;
+    top: 12% !important;
+  }
+  .tabImg3 {
+    width: 87%;
+    top: 10% !important;
+  }
+  .img4 {
+    position: absolute;
+    top: 12% !important;
+    left: 32% !important;
+    width: 47vw;
+  }
+  .checkImg {
+    width: 100%;
+  }
+  .description1 {
+    margin-bottom: 5%;
+  }
+  .description2 {
+    margin-bottom: 10%;
+  }
+  .description3 {
+    margin-bottom: 5%;
+  }
+}

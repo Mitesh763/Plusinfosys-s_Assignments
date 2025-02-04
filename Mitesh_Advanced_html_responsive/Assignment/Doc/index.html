@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="../Doc/js/owl.carousel.js"></script>
+    <link rel="stylesheet" href="home.style.css" />
+
+    <title>Welcome - Volunteer Oversees</title>
+  </head>
+  <body>
+    <main class="mainB">
+      <div class="container">
+        <div class="introduction">
+          <nav class="navbar">
+            <img class="mainLogo" src="../Doc/images/logo_1.png" alt="" />
+            <div class="two_pages">
+              <img class="humburgor" src="../Doc/images/menu.svg" alt="" />
+              <img
+                class="crossMenu displayNone"
+                src="../Doc/images/cross.png"
+                alt=""
+              />
+              <div class="pages">
+                <ul>
+                  <li>HOW IT WORKS</li>
+                  <li>CONTACT US</li>
+                </ul>
+              </div>
+              <button class="loginBtn">Login</button>
+            </div>
+          </nav>
+          <div class="introDiscription">
+            <h2>Discover Yourself, Discover the World</h2>
+            <p>
+              Apply to your perfect volunteer, intern, or teach abroad program.
+            </p>
+            <div class="table_d">
+              <table>
+                <tr>
+                  <th><h2>Type</h2></th>
+                  <th><h2>Location</h2></th>
+                  <th><h2>Activity</h2></th>
+                  <th>&nbsp;</th>
+                </tr>
+                <tr>
+                  <td>
+                    <select id="type_select">
+                      <option disabled selected class="hidden-option">
+                        Volunteer Abroad
+                      </option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="location_input"
+                      placeholder="Anywhere"
+                    />
+                  </td>
+                  <td>
+                    <select id="activity_select">
+                      <option disabled selected class="hidden-option">
+                        Anything
+                      </option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                    </select>
+                  </td>
+                  <td>
+                    <a
+                      href="../Doc/searchPage/index.html"
+                      style="color: white !important"
+                      >Search</a
+                    >
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="dropdown">
+              <div class="dropdown1 example-container half">
+                <h2>Type</h2>
+                <select id="type_select">
+                  <option disabled selected class="hidden-option">
+                    Volunteer Abroad
+                  </option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                </select>
+              </div>
+              <div class="dd_div2">
+                <h2>Location</h2>
+                <input type="text" id="location_input" placeholder="Anywhere" />
+              </div>
+              <div class="dropdown2 example-container half">
+                <h2>Activity</h2>
+                <select id="activity_select">
+                  <option disabled selected class="hidden-option">
+                    Anything
+                  </option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                </select>
+              </div>
+              <div class="dd_div4">
+                <button>
+                  <a
+                    href="../Doc/searchPage/index.html"
+                    style="color: white !important"
+                    >Search</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="discriptionSession">
+        <div class="tendingPart">
+          <h2>Trending Projects</h2>
+          <div
+            class="owl-carousel owl-theme slider12"
+            style="position: relative"
+          >
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb01.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <h4>Costa Rica</h4>
+              <h2>MEDICAL SUPPORT IN QAPOS</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb02.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: local;
+              "
+            >
+              <h4>Peru</h4>
+              <h2>VOLUNTEERING</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb03.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: local;
+              "
+            >
+              <h4>Thiland</h4>
+              <h2>TEACH ENGLISH ABROAD</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb04.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: local;
+              "
+            >
+              <h4>India</h4>
+              <h2 style="color: #ff0051 !important">DENTAL CARE ABROAD</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb05.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: local;
+              "
+            >
+              <h4>Costa Rica</h4>
+              <h2>MEDICAL SUPPORT IN QAPOS</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+            <div
+              class="item item_desc item1_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb06.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: local;
+              "
+            >
+              <h4>Thiland</h4>
+              <h2>TEACH ENGLISH ABROAD</h2>
+              <p class="para1">Global Volunteering International</p>
+              <p class="para2">12 people researching this project</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="featuresDestination">
+          <h2>Feature Destination</h2>
+          <div class="owl-carousel owl-theme slider22">
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb10.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>KENYA</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb11.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>TURKMENISTAN</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb12.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>SOUTH AFRICA</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb13.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>BOLIVIA</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb14.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>AFRICA</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb15.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>INDIA</h2>
+            </div>
+            <div
+              class="item item_desc_feature item2_desc"
+              style="
+                background-image: url('../Doc/images/bg.png'),
+                  url(../Doc/images/thumb16.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+              "
+            >
+              <p>37 project in</p>
+              <h2>INDIA</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="featuresDestination">
+          <h2>Most Affordable Projects</h2>
+          <div class="owl-carousel owl-theme slider33">
+            <a href="https://www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb16.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Surf School for Children</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https://www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb17.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Animal Care</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https://www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb18.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Medical Support in Qapos</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https:www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb19.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Teach English & French</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https://www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb20.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Build Houses abroad</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https://www.google.com">
+              <div
+                class="item item_afford item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb21.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Medical Support in Qapos</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+            <a href="https://www.google.com"
+              ><div
+                class="item item_desc item3_desc"
+                style="
+                  background-image: url('../Doc/images/bg.png'),
+                    url(../Doc/images/thumb22.jpg);
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <span>Starting at</span>
+                <p class="para12">$299/week</p>
+                <span>for 4 Weeks</span>
+                <h5>Animal Care</h5>
+              </div>
+              <div
+                class="bottomTxt"
+                style="display: flex; flex-direction: column"
+              >
+                <h6>South Africa</h6>
+                <p class="para2">Global Volunteering International</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="tendingPart">
+          <h2>Trending Projects</h2>
+          <div class="carousel-container">
+            <img
+              src="../Doc/images/left-white-arrow.png"
+              id="prevBtn"
+              class="carousel-btn left-btn"
+              alt=""
+            />
+
+            <div class="owl-carousel slider1">
+              <a href="https:www.google.com"
+                ><div class="item item1 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item1_desc">
+                      <h4>Costa Rica</h4>
+                      <h2>MEDICAL SUPPORT IN QAPOS</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com"
+                ><div class="item item2 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item2_desc">
+                      <h4>Peru</h4>
+                      <h2>VOLUNTEERING</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com"
+                ><div class="item item3 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item3_desc">
+                      <h4>Thiland</h4>
+                      <h2>TEACH ENGLISH ABROAD</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com"
+                ><div class="item item4 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item4_desc">
+                      <h4>India</h4>
+                      <h2 style="color: #ff0051 !important">
+                        DENTAL CARE ABROAD
+                      </h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com"
+                ><div class="item item5 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item1_desc">
+                      <h4>Costa Rica</h4>
+                      <h2>MEDICAL SUPPORT IN QAPOS</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com">
+                <div class="item item6 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item1_desc">
+                      <h4>Costa Rica</h4>
+                      <h2>MEDICAL SUPPORT IN QAPOS</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href="https://www.google.com"
+                ><div class="item item7 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc item1_desc">
+                      <h4>Costa Rica</h4>
+                      <h2>MEDICAL SUPPORT IN QAPOS</h2>
+                      <p class="para1">Global Volunteering International</p>
+                      <p class="para2">12 people researching this project</p>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <img
+              src="../Doc/images/right-white-arrow.png"
+              id="nextBtn"
+              class="carousel-btn right-btn"
+              alt=""
+            />
+          </div>
+        </div> -->
+
+      <!-- <div class="featuresDestination">
+          <h2>Feature Destination</h2>
+          <div class="carousel-container">
+            <img
+              src="../Doc/images/left-white-arrow.png"
+              id="prevBtn1"
+              class="carousel-btn left-btn"
+              style="top: 45% !important"
+            />
+
+            <div class="owl-carousel slider2" style="position: relative">
+              <a href="https://www.google.com"
+                ><div class="item_feature item8 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item1_desc">
+                      <p>37 project in</p>
+                      <h2>KENYA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https://www.google.com"
+                ><div class="item_feature item9 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item2_desc">
+                      <p>37 project in</p>
+                      <h2>TURKMENISTAN</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https://www.google.com"
+                ><div class="item_feature item10 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item3_desc">
+                      <p>37 project in</p>
+                      <h2>SOUTH AFRICA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https://www.google.com"
+                ><div class="item_feature item11 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item4_desc">
+                      <p>37 project in</p>
+                      <h2>BOLIVIA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https://www.google.com"
+                ><div class="item_feature item12 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item1_desc">
+                      <p>37 project in</p>
+                      <h2>AFRICA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https://www.google.com"
+                ><div class="item_feature item13 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item1_desc">
+                      <p>37 project in</p>
+                      <h2>INDIA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+              <a href="https:www.google.com"
+                ><div class="item_feature item14 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_desc_feature item1_desc">
+                      <p>37 project in</p>
+                      <h2>CHINA</h2>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <img
+              src="../Doc/images/right-white-arrow.png"
+              id="nextBtn1"
+              class="carousel-btn right-btn"
+              style="top: 45% !important"
+            />
+          </div>
+        </div> -->
+
+      <!-- <div class="affordable">
+          <h2>Most Affordable Projects</h2>
+          <div class="carousel-container">
+            <img
+              src="../Doc/images/left-white-arrow.png"
+              id="prevBtn3"
+              class="carousel-btn left-btn"
+              alt=""
+            />
+
+            <div class="owl-carousel slider3">
+              <a href="https://www.google.com">
+                <div class="items_afford item16 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Surf School for Children</h5>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bottomTxt"
+                  style="display: flex; flex-direction: column"
+                >
+                  <h6>South Africa</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+
+              <a href="https:www.google.com">
+                <div class="items_afford item17 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Animal Care</h5>
+                    </div>
+                  </div>
+                  <h6>Ghana</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+              <a href="https:www.google.com">
+                <div class="items_afford item18 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Medical Support in Qapos</h5>
+                    </div>
+                  </div>
+                  <h6>Costa Rica</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+              <a href="https:www.google.com">
+                <div class="items_afford item19 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Teach English & French</h5>
+                    </div>
+                  </div>
+                  <h6>Costa Peru</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+              <a href="https:www.google.com">
+                <div class="items_afford item20 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Build Houses abroad</h5>
+                    </div>
+                  </div>
+                  <h6>Kenya</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+              <a href="https:www.google.com">
+                <div class="items_afford item21 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Medical Support in Qapos</h5>
+                    </div>
+                  </div>
+                  <h6>Costa Rica</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div>
+              </a>
+              <a href="https:www.google.com"
+                ><div class="items_afford item22 itemImg">
+                  <div class="upperLayer">
+                    <div class="item_afford item3_desc">
+                      <span>Starting at</span>
+                      <p class="para12">$299/week</p>
+                      <span>for 4 Weeks</span>
+                      <h5>Medical Support in Qapos</h5>
+                    </div>
+                  </div>
+                  <h6>Costa Rica</h6>
+                  <p class="para2">Global Volunteering International</p>
+                </div></a
+              >
+            </div>
+            <img
+              src="../Doc/images/right-white-arrow.png"
+              id="nextBtn3"
+              class="carousel-btn right-btn"
+              alt=""
+            />
+          </div>
+        </div> -->
+
+      <div class="footer">
+        <div class="logo">
+          <img
+            class="mainLogo"
+            src="../Doc/images/logo_1.png"
+            alt="Footer - Logo"
+          />
+        </div>
+        <div class="faqs">
+          <ul>
+            <li>FAQ</li>
+            <li>CONTECT US</li>
+          </ul>
+        </div>
+      </div>
+
+      <script>
+        $(".slider12").owlCarousel({
+          loop: true,
+          margin: 25,
+          nav: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            651: {
+              items: 2,
+            },
+            900: {
+              items: 4,
+            },
+          },
+        });
+
+        // second slider
+        $(".slider22").owlCarousel({
+          loop: true,
+          margin: 25,
+          nav: true,
+          responsive: {
+            0: {
+              items: 2,
+            },
+            651: {
+              items: 3,
+            },
+            900: {
+              items: 6,
+            },
+          },
+        });
+
+        // third slider
+        $(".slider33").owlCarousel({
+          loop: true,
+          margin: 25,
+          nav: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            651: {
+              items: 3,
+            },
+            900: {
+              items: 5,
+            },
+          },
+        });
+      </script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="script.js"></script>
+    </main>
+  </body>
+</html>
