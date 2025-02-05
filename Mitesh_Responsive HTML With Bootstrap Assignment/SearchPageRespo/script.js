@@ -103,3 +103,24 @@ $(document).ready(function () {
     });
   });
 });
+
+// date reset
+let resetBtnDate = document.querySelector(".resetBtnDate");
+resetBtnDate.addEventListener("click", () => {
+  document.querySelector(".monthVal").value = "month";
+  document.querySelector(".monthVal2").value = "month";
+  document.querySelector(".dayVal").value = "dd";
+  document.querySelector(".dayVal2").value = "dd";
+  document.querySelector(".yearVal").value = "yyyy";
+  document.querySelector(".yearVal2").value = "yyyy";
+});
+
+// range reset
+let resetBtnRange = document.querySelector(".resetBtnRange");
+resetBtnRange.addEventListener("click", () => {
+  $("#min_price").val(1);
+  $("#max_price").val(10);
+  $("#slider-range").slider({
+    values: [1, 10],
+  });
+});

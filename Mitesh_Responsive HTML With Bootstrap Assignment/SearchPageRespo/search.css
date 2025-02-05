@@ -38,7 +38,7 @@
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.932) !important ;
 }
 
 .ui-slider-horizontal {
@@ -142,4 +142,11 @@ input[type="checkbox"]:checked {
   .col-lg-4 {
     border: none !important;
   }
+}
+
+.resetBtnDate:hover,
+.resetBtnRange:hover {
+  transition: 0.2s ease-in all;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgb(173, 33, 33);
 }

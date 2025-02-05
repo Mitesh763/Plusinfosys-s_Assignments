@@ -118,8 +118,6 @@ humbargor.addEventListener("click", () => {
   pages.classList.remove("pages");
   pages.classList.add("pagesOverlay");
   const newBtn = document.createElement("button");
-
-  // loginBtn.classList.remove("loginBtn")
 });
 
 crossMenu.addEventListener("click", () => {
@@ -127,7 +125,4 @@ crossMenu.addEventListener("click", () => {
   crossMenu.classList.add("displayNone");
   pages.classList.add("pages");
   pages.classList.remove("pagesOverlay");
-  // loginBtn.classList.add("loginBtn")
-
-  // pages.style.
 });

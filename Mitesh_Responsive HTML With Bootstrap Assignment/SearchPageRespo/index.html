@@ -31,6 +31,7 @@
   </head>
   <body>
     <main class="overflow-hidden">
+      <!-- *************navbar -->
       <nav
         class="wrapper container-fluid navbar navbar-expand-lg navbar-light bg-light px-3"
       >
@@ -88,6 +89,7 @@
         </div>
       </nav>
 
+      <!-- *************form section -->
       <div
         class="container-fluid py-3 pt-0 pe-0"
         style="background-color: rgb(231, 231, 231)"
@@ -96,6 +98,7 @@
           <div
             class="row d-flex align-items-center justify-content-center ps-lg-5 ps-md-0 ps-lg-3 flex-row"
           >
+            <!-- checkbox -->
             <div class="col-lg-2 col-md-2 ps-lg-3 col-sm-6 ps-0 notMobile">
               <label for="cause" class="color-blue fw-bold mb-3">Cause</label>
               <div class="d-flex flex-wrap">
@@ -131,6 +134,7 @@
               </div>
             </div>
 
+            <!-- imput -->
             <div class="col-lg-4 col-md-4 col-sm-6 text-end notMobile">
               <label
                 for="searchCountry"
@@ -146,6 +150,7 @@
               />
             </div>
 
+            <!-- dropdown for activity -->
             <div class="col-lg-4 col-md-4 col-sm-6 text-end notMobile">
               <label
                 for="activitySelect"
@@ -166,6 +171,7 @@
               </select>
             </div>
 
+            <!-- edit btn for mobile view -->
             <div class="col row mt-3 editBtn">
               <div class="col-7">
                 <p>
@@ -181,6 +187,8 @@
               </div>
               <div class="col temp"></div>
             </div>
+
+            <!-- more filter btn -->
             <div class="col col-lg-2 col-md-1 col-sm-6 text-end">
               <label class="color-blue fw-bold d-block">&nbsp;</label>
 
@@ -209,6 +217,7 @@
         </div>
       </div>
 
+      <!-- filter wrap for more filter -->
       <div
         class="offcanvas offcanvas-top fullViewCanvas search-panel"
         tabindex="-1"
@@ -229,11 +238,15 @@
               <div class="col-lg-4 row border-end mb-5 me-0 pe-0">
                 <div class="col-12 col-lg-11 row gap1 mb-2 pe-0 me-0">
                   <label class="col-6 color-blue">Start date (range)</label>
-                  <label class="col-6 pe-0 text-danger text-end">Reset</label>
+                  <label
+                    class="col-6 pe-0 text-danger text-end resetBtnDate"
+                    style="cursor: pointer"
+                    >Reset</label
+                  >
                 </div>
 
                 <div class="col">
-                  <select class="form-select shadow-sm pb-3">
+                  <select class="form-select shadow-sm pb-3 monthVal">
                     <option selected disabled>month</option>
                     <option>January</option>
                     <option>February</option>
@@ -248,7 +261,7 @@
                     <option>November</option>
                     <option>December</option>
                   </select>
-                  <select class="form-select shadow-sm mt-2 pb-3">
+                  <select class="form-select shadow-sm mt-2 pb-3 monthVal2">
                     <option selected disabled>month</option>
                     <option>January</option>
                     <option>February</option>
@@ -266,7 +279,7 @@
                 </div>
 
                 <div class="col-2 ps-0 ps-0 pe-0">
-                  <select class="form-select shadow-sm pb-3">
+                  <select class="form-select shadow-sm pb-3 dayVal">
                     <option selected disabled>dd</option>
                     <script>
                       for (let i = 1; i <= 31; i++) {
@@ -274,7 +287,7 @@
                       }
                     </script>
                   </select>
-                  <select class="form-select shadow-sm mt-2 pb-3">
+                  <select class="form-select shadow-sm mt-2 pb-3 dayVal2">
                     <option selected disabled>dd</option>
                     <script>
                       for (let i = 1; i <= 31; i++) {
@@ -285,7 +298,7 @@
                 </div>
 
                 <div class="col">
-                  <select class="form-select shadow-sm pb-3">
+                  <select class="form-select shadow-sm pb-3 yearVal">
                     <option selected disabled>yyyy</option>
                     <script>
                       const currentYear = new Date().getFullYear();
@@ -295,7 +308,7 @@
                     </script>
                   </select>
                   <select
-                    class="form-select shadow-sm mt-2 pb-3 align-self-center"
+                    class="form-select shadow-sm mt-2 pb-3 align-self-center yearVal2"
                   >
                     <option selected disabled>yyyy</option>
                     <script>
@@ -314,7 +327,11 @@
               <div class="col-lg-4 border-end mb-5">
                 <div class="col-12 row ms-0 mb-2">
                   <label class="col-6 color-blue">Duration</label>
-                  <label class="col-6 text-danger text-end">Reset</label>
+                  <label
+                    class="col-6 text-danger text-end resetBtnRange"
+                    style="cursor: pointer"
+                    >Reset</label
+                  >
                 </div>
                 <div class="container">
                   <div style="margin-bottom: 10px">
@@ -322,7 +339,7 @@
                       type="number"
                       min="1"
                       max="10"
-                      oninput="validity.valid||(value='1');"
+                      oninput="validity.valid||(value='10');"
                       id="min_price"
                       class="price-range-field"
                     />
@@ -332,7 +349,7 @@
                       type="number"
                       min="1"
                       max="10"
-                      oninput="(value='10');"
+                      oninput="validity.valid||(value='10');"
                       id="max_price"
                       class="price-range-field"
                     />
@@ -371,6 +388,7 @@
         </div>
       </div>
 
+      <!-- *************search-panel -->
       <div class="mt-3 mb-3 search-panel">
         <div class="sortBy row mx-md-2 mx-lg-5 px-md-2 mx-3">
           <span class="col-3 col-md-6 ps-0">329 Results</span>
@@ -389,10 +407,12 @@
         </div>
       </div>
 
+      <!-- *************results -->
       <div
         class="container-fluid d-flex align-self-center justify-content-center flex-row"
       >
         <div class="row ms-2 mx-md-1 mx-lg-5">
+          <!-- carousel-1 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0 ms-0"
             style="margin-bottom: 0.5rem"
@@ -499,6 +519,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-2 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 0.5rem"
@@ -605,6 +627,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-3 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 0.5rem"
@@ -711,6 +735,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-4 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 0.5rem"
@@ -817,6 +843,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-5 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -923,6 +951,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-6 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1029,6 +1059,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-7 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1135,6 +1167,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-8 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1241,6 +1275,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-9 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1347,6 +1383,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-10 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1453,6 +1491,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-11 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1559,6 +1599,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-12 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1665,6 +1707,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-13 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1771,6 +1815,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-14 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1877,6 +1923,8 @@
             </div>
           </div>
           <br />
+
+          <!-- carousel-15 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -1986,7 +2034,7 @@
         </div>
       </div>
 
-      <!-- pagination -->
+      <!-- **************pagination -->
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item">
@@ -2007,6 +2055,7 @@
         </ul>
       </nav>
 
+      <!-- **************pagination -->
       <footer
         class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-secondary"
       >
