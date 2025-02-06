@@ -1,0 +1,32 @@
+html,
+body {
+  font-family: sans-serif;
+}
+
+nav {
+  background-image: url("./imgs/banner2.jpg");
+}
+
+.bg-gray1 {
+  background-color: #ddddd7;
+}
+
+.bg-gray2 {
+  background-color: #ececebcc;
+}
+
+.itemHead {
+  margin: 6rem 2rem 0 2rem;
+}
+
+.item1,
+.item2,
+.item3,
+.item4,
+.checkOutPoint {
+  margin: 0 2rem;
+}
+
+footer {
+  background-color: #3d3a3a;
+}

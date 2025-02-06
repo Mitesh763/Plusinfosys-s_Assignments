@@ -1,0 +1,11 @@
+html {
+  font-size: 21px;
+}
+
+.form {
+  margin: 3rem 0 0 2rem;
+}
+
+label {
+  width: 12vw;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="validation.css" />
+    <title>JavaScript Validation</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header"></div>
+      <div class="form">
+        <table>
+          <tr class="fields field1">
+            <th><label for="fName" id="fName">First Name : </label></th>
+            <td>
+              <input type="text" name="fName" placeholder="Your name.." />
+            </td>
+          </tr>
+          <tr class="fields field2">
+            <th><label for="mName" id="mName">Middle Name : </label></th>
+            <td>
+              <input type="text" name="fName" placeholder="Your name.." />
+            </td>
+          </tr>
+          <tr class="fields field3">
+            <th><label for="lName" id="lName">Last Name : </label></th>
+            <td>
+              <input type="text" name="lName" placeholder="Your last name.." />
+            </td>
+          </tr>
+
+          <tr class="fields field4">
+            <th><label for="email" id="">Email Address : </label></th>
+            <td>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your mail address.."
+              />
+            </td>
+          </tr>
+          <tr class="fields field5">
+            <th><label for="password" id="">Password :</label></th>
+            <td>
+              <input
+                type="password"
+                name="password"
+                placeholder="password.."
+                minlength="8"
+              />
+            </td>
+          </tr>
+          <tr class="fields field6">
+            <th><label for="bdate" id="">Birth Date : </label></th>
+            <td><input type="date" name="bdate" placeholder="mm/dd/yyyy" /></td>
+          </tr>
+          <tr class="fields field9">
+            <th><label for="age" id="">Age : </label></th>
+            <td><input type="number" name="age" placeholder="Your Age.." /></td>
+          </tr>
+          <tr class="fields field8">
+            <th><label for="gender" id="">Gender : </label></th>
+            <td>
+              <input type="radio" name="gender" />
+              <label for="gender" id="">male</label>
+              <input type="radio" name="gender" />
+              <label for="gender" id="">female</label>
+            </td>
+          </tr>
+          <tr class="fields field9">
+            <th><label for="interest" id="">Interest : </label></th>
+            <td>
+              <input type="checkbox" name="interest" />
+              <label for="interest" id="">Sport</label>
+              <input type="checkbox" name="interest" />
+              <label for="interest" id="">Dance</label>
+              <input type="checkbox" name="interest" />
+              <label for="interest" id="">Reading</label>
+              <input type="checkbox" name="interest" />
+              <label for="interest" id="">Other</label>
+              <input type="text" disabled />
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+        </table>
+        <!-- <div class="fields field1">
+          <label for="fName" id="fName">First Name : </label>
+          <input type="text" name="fName" placeholder="Your name.." />
+        </div>
+        <div class="fields field2">
+          <label for="mName" id="mName">Middle Name : </label>
+          <input type="text" name="mName" placeholder="Your middle name.." />
+        </div>
+        <div class="fields field3">
+          <label for="lName" id="lName">Last Name : </label>
+          <input type="text" name="lName" placeholder="Your last name.." />
+        </div>
+        <div class="fields field4">
+          <label for="email" id="">Email Address : </label>
+          <input type="email" name="email" placeholder="Your mail address.." />
+        </div>
+        <div class="fields field5">
+          <label for="password" id="">Password :</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="password.."
+            minlength="8"
+          />
+        </div>
+        <div class="fields field6">
+          <label for="bdate" id="">Birth Date : </label>
+          <input type="date" name="bdate" placeholder="mm/dd/yyyy" />
+        </div>
+        <div class="fields field7">
+          <label for="age" id="">Age : </label>
+          <input type="number" name="age" placeholder="Your Age.." />
+        </div>
+        <div class="fields field8">
+          <label for="gender" id="">Gender : </label>
+          <input type="radio" name="gender" />
+          <label for="gender" id="">male</label>
+          <input type="radio" name="gender" />
+          <label for="gender" id="">female</label>
+        </div>
+        <div class="fields field9">
+          <label for="interest" id="">Interest : </label>
+          <input type="checkbox" name="interest" />
+          <label for="interest" id="">Sport</label>
+          <input type="checkbox" name="interest" />
+          <label for="interest" id="">Dance</label>
+          <input type="checkbox" name="interest" />
+          <label for="interest" id="">Reading</label>
+          <input type="checkbox" name="interest" />
+          <label for="interest" id="">Other</label>
+          <input type="text" disabled />
+        </div> -->
+        <div class="locations">
+          <div class="location1">
+            <label for="loc1" id="">Job Preffered state 1</label>
+            <select name="loc1" id="">
+              <option value="">select</option>
+              <option value="gujrat">Gujrat</option>
+              <option value="rajsthan">Rajsthan</option>
+              <option value="maharashtra">Maharashtra</option>
+              <option value="up">Uttarpradesh</option>
+              <option value="delhi">Delhi</option>
+            </select>
+          </div>
+          <div class="location2"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
