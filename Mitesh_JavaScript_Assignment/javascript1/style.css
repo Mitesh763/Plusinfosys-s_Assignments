@@ -1,6 +1,6 @@
-html,
 body {
   font-family: sans-serif;
+  background: linear-gradient(rgb(255 255 255), rgb(50 78 79));
 }
 
 nav {
@@ -28,5 +28,29 @@ nav {
 }
 
 footer {
-  background-color: #3d3a3a;
+  background: linear-gradient(rgb(170, 168, 168), rgb(50 78 79));
+}
+
+input:hover {
+  transition: 0.5s;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.card {
+  background: linear-gradient(rgb(50 78 79), rgb(255 255 255));
+  box-shadow: 5px 5px 5px gray inset;
+}
+
+.card:hover {
+  transition: 3s;
+  box-shadow: -5px -5px 5px gray;
+}
+
+.linkHover:hover {
+  font-weight: 600;
+  text-shadow: 1px 1px 5px rgb(255, 255, 255);
+}
+
+.btnH:hover {
+  box-shadow: 5px 5px 5px gray;
 }

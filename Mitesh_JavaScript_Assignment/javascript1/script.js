@@ -13,9 +13,9 @@ let quantity2;
 let quantity3;
 let quantity4;
 let pItem1;
+let pItem4;
 let pItem2;
 let pItem3;
-let pItem4;
 
 check1.addEventListener("click", () => {
   if (check1.checked === true) {
@@ -43,32 +43,16 @@ function displaySingleTotal1() {
   pItem1 = document.getElementById("singleSum1").innerText = Number(
     item1Price * quantity1
   );
-  totalItems.innerText = Number(
-    Number(totalItems.innerText) + Number(quantity1)
-  ); // totl item
-  totalPrice.innerText = Number(Number(totalPrice.innerText) + pItem1); // total price
-  document.querySelector(".gst").innerText = totalPrice.innerText * 0.18; // gst of price
-  total.innerText =
-    Number(document.querySelector(".gst").innerText) +
-    Number(document.querySelector(".totalPrice").innerText);
+  calTotal(quantity1, pItem1);
+  calGSTandTotal();
 }
 
 let remove1 = document.querySelector(".remove1");
 let item1 = document.querySelector(".item1");
 remove1.addEventListener("click", () => {
+  removeTotal(inputEnable1.value, pItem1);
+  calGSTandTotal();
   item1.style.display = "none";
-  // totalItems.innerText = Number(
-  //   Number(document.querySelector(".totalItems").innerText) -
-  //     Number(inputEnable1.value)
-  // );
-  // totalPrice.innerText = Number(
-  //   Number(document.querySelector(".totalPrice").innerText) +
-  //     document.getElementById("singleSum1").innerText
-  // );
-  // document.querySelector(".gst").innerText = totalPrice.innerText * 0.18;
-  // total.innerText =
-  //   Number(document.querySelector(".gst").innerText) +
-  //   Number(document.querySelector(".totalPrice").innerText);
 });
 
 // item2
@@ -98,18 +82,14 @@ function displaySingleTotal2() {
   pItem2 = document.querySelector("#singleSum2").innerText = Number(
     item2Price * quantity2
   );
-  totalItems.innerText = Number(
-    Number(totalItems.innerText) + Number(quantity2)
-  );
-  totalPrice.innerText = Number(Number(totalPrice.innerText) + pItem2);
-  document.querySelector(".gst").innerText = totalPrice.innerText * 0.18; // gst of price
-  total.innerText =
-    Number(document.querySelector(".gst").innerText) +
-    Number(document.querySelector(".totalPrice").innerText);
+  calTotal(quantity2, pItem2);
+  calGSTandTotal();
 }
 let remove2 = document.querySelector(".remove2");
 let item2 = document.querySelector(".item2");
 remove2.addEventListener("click", () => {
+  removeTotal(inputEnable2.value, pItem2);
+  calGSTandTotal();
   item2.style.display = "none";
 });
 
@@ -140,18 +120,14 @@ function displaySingleTotal3() {
   pItem3 = document.querySelector("#singleSum3").innerText = Number(
     item3Price * quantity3
   );
-  totalItems.innerText = Number(
-    Number(totalItems.innerText) + Number(quantity3)
-  );
-  totalPrice.innerText = Number(Number(totalPrice.innerText) + pItem3);
-  document.querySelector(".gst").innerText = totalPrice.innerText * 0.18; // gst of price
-  total.innerText =
-    Number(document.querySelector(".gst").innerText) +
-    Number(document.querySelector(".totalPrice").innerText);
+  calTotal(quantity3, pItem3);
+  calGSTandTotal();
 }
 let remove3 = document.querySelector(".remove3");
 let item3 = document.querySelector(".item3");
 remove3.addEventListener("click", () => {
+  removeTotal(inputEnable3.value, pItem3);
+  calGSTandTotal();
   item3.style.display = "none";
 });
 
@@ -182,18 +158,14 @@ function displaySingleTotal4() {
   pItem4 = document.querySelector("#singleSum4").innerText = Number(
     item4Price * quantity4
   );
-  totalItems.innerText = Number(
-    Number(totalItems.innerText) + Number(quantity4)
-  );
-  totalPrice.innerText = Number(Number(totalPrice.innerText) + pItem4);
-  document.querySelector(".gst").innerText = totalPrice.innerText * 0.18; // gst of price
-  total.innerText =
-    Number(document.querySelector(".gst").innerText) +
-    Number(document.querySelector(".totalPrice").innerText);
+  calTotal(quantity4, pItem4);
+  calGSTandTotal();
 }
 let remove4 = document.querySelector(".remove4");
 let item4 = document.querySelector(".item4");
 remove4.addEventListener("click", () => {
+  removeTotal(inputEnable4.value, pItem4);
+  calGSTandTotal();
   item4.style.display = "none";
 });
 
@@ -201,25 +173,52 @@ let totalSubPrice = document.querySelector(".totalPrice");
 document.querySelector(".gst").innerText = totalSubPrice.innerText;
 
 function confirmOrder() {
-  const date = new Date();
-  console.log(document.querySelector(".totalItems"));
-  alert(
-    `Total item: ` +
-      document.querySelector(".totalItems").innerText +
-      ` \n Total Amount: $` +
-      document.querySelector(".total").innerText +
-      ` \n Bill Date: ` +
-      date.getDate() +
-      `/` +
-      date.getMonth() +
-      `/` +
-      date.getFullYear() +
-      ` \n Delivery Date: ` +
-      date.getDate() +
-      `/` +
-      date.getMonth() +
-      `/` +
-      (date.getFullYear() + 1) +
-      `\n\n\n Confirm order? `
+  console.log(document.querySelector(".totaltems"));
+  if (document.querySelector(".totalItems").innerText > 0) {
+    const date = new Date();
+    alert(
+      `Total item: ` +
+        document.querySelector(".totalItems").innerText +
+        ` \n Total Amount: $` +
+        document.querySelector(".total").innerText +
+        ` \n Bill Date: ` +
+        date.getDate() +
+        `/` +
+        date.getMonth() +
+        `/` +
+        date.getFullYear() +
+        ` \n Delivery Date: ` +
+        date.getDate() +
+        `/` +
+        date.getMonth() +
+        `/` +
+        (date.getFullYear() + 1) +
+        `\n\n\n Confirm order? `
+    );
+  } else {
+    alert("No one item Select!");
+  }
+}
+
+function removeTotal(inputValue, price) {
+  totalItems.innerText = Number(
+    Number(document.querySelector(".totalItems").innerText) - Number(inputValue)
   );
+  totalPrice.innerText = Number(
+    Number(document.querySelector(".totalPrice").innerText) - price
+  );
+}
+
+function calTotal(quantity, price) {
+  totalItems.innerText = Number(
+    Number(totalItems.innerText) + Number(quantity)
+  );
+  totalPrice.innerText = Number(Number(totalPrice.innerText) + price);
+}
+
+function calGSTandTotal() {
+  document.querySelector(".gst").innerText = totalPrice.innerText * 0.18;
+  total.innerText =
+    Number(document.querySelector(".gst").innerText) +
+    Number(document.querySelector(".totalPrice").innerText);
 }

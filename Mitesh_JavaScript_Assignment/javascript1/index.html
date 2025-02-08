@@ -30,21 +30,23 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
               <li class="nav-item">
                 <a
-                  class="nav-link active text-white mt-0 pt-0"
+                  class="nav-link active text-white mt-0 pt-0 linkHover"
                   aria-current="page"
                   href="#"
                   >HOW IT WORKS</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white ms-lg-5 mt-0 pt-0" href="#"
+                <a
+                  class="nav-link text-white ms-lg-5 mt-0 pt-0 linkHover"
+                  href="#"
                   >CONTACT US</a
                 >
               </li>
             </ul>
             <form class="d-flex">
               <button
-                class="btn text-white border-white py-2 px-3"
+                class="btn text-white border-white py-2 px-3 linkHover btnH"
                 style="border-radius: 0.2px"
                 type="submit"
               >
@@ -57,6 +59,7 @@
 
       <div
         class="row d-flex align-items-center justify-content-center ps-4 pe-3 border-top border-bottom py-3 itemHead"
+        style="border-color: black !important"
       >
         <div class="col-1 fw-bold">Select</div>
         <div class="col-1 fw-bold">Image</div>
@@ -68,12 +71,15 @@
       </div>
 
       <!-- **** item1 -->
-      <div class="row ps-4 pe-3 border-bottom py-3 item1">
+      <div
+        class="row ps-4 pe-3 border-bottom py-3 item1"
+        style="border-color: black !important"
+      >
         <div class="col-1">
           <input type="checkbox" class="check1 commonCheck bg-gray1" />
         </div>
         <div class="col-1 ps-0">
-          <a href="./imgs/blue_shirt.jpg"
+          <a href="./imgs/blue_shirt.jpg" target="_blank"
             ><img src="./imgs/blue_shirt.jpg" alt="" style="width: 7vw"
           /></a>
         </div>
@@ -96,12 +102,17 @@
       </div>
 
       <!-- **** item2 -->
-      <div class="row ps-4 pe-3 border-bottom py-3 item2">
+      <div
+        class="row ps-4 pe-3 border-bottom py-3 item2"
+        style="border-color: black !important"
+      >
         <div class="col-1">
           <input type="checkbox" class="check2 commonCheck" />
         </div>
         <div class="col-1 ps-0">
-          <img src="./imgs/red_saree.jpg" alt="" style="width: 7vw" />
+          <a href="./imgs/red_saree.jpg" target="_blank"
+            ><img src="./imgs/red_saree.jpg" alt="" style="width: 7vw"
+          /></a>
         </div>
         <div class="col-3">A hot red saree with black border work</div>
         <div class="col-1">$<span class="item2Price">45</span></div>
@@ -124,17 +135,21 @@
       </div>
 
       <!-- **** item3 -->
-      <div class="row ps-4 pe-3 border-bottom py-3 item3">
+      <div
+        class="row ps-4 pe-3 border-bottom py-3 item3"
+        style="border-color: black !important"
+      >
         <div class="col-1">
           <input type="checkbox" class="check3 commonCheck" />
         </div>
         <div class="col-1 ps-0">
-          <img
-            src="./imgs/green_dress.jpg"
-            alt=""
-            style="width: 7vw"
-            height="100vh"
-          />
+          <a href="./imgs/green_dress.jpg" target="_blank"
+            ><img
+              src="./imgs/green_dress.jpg"
+              alt=""
+              style="width: 7vw"
+              height="100vh"
+          /></a>
         </div>
         <div class="col-3">An ethnic green dress</div>
         <div class="col-1">$<span class="item3Price">90</span></div>
@@ -155,16 +170,20 @@
       </div>
 
       <!-- **** item4 -->
-      <div class="row ps-4 pe-3 py-3 item4">
+      <div
+        class="row ps-4 pe-3 py-3 item4"
+        style="border-color: black !important"
+      >
         <div class="col-1">
           <input type="checkbox" class="check4 commonCheck" />
         </div>
         <div class="col-1 ps-0">
-          <img
-            src="./imgs/baby_dress.jpg"
-            alt=""
-            style="width: 7vw; height: 15vh"
-          />
+          <a href="./imgs/baby_dress.jpg" target="_blank"
+            ><img
+              src="./imgs/baby_dress.jpg"
+              alt=""
+              style="width: 7vw; height: 15vh"
+          /></a>
         </div>
         <div class="col-3">Baby dress</div>
         <div class="col-1">$<span class="item4Price">67.08</span></div>
@@ -187,13 +206,17 @@
       <!-- check-out point -->
       <div class="card ms-auto checkOutPoint" style="width: 18rem">
         <div class="card-body">
-          <p class="mb-1">Total item:<span class="totalItems"></span></p>
-          <p class="mb-1">Sub Total: $<span class="totalPrice"></span></p>
-          <p class="mb-1">GST(18%):<span class="gst"></span></p>
-          <p class="mb-1">Total: $<span class="total"></span></p>
+          <p class="mb-1 fw-bold fs-5">
+            Total item:<span class="totalItems"></span>
+          </p>
+          <p class="mb-1 fw-bold fs-5">
+            Sub Total: $<span class="totalPrice"></span>
+          </p>
+          <p class="mb-1 fw-bold fs-5">GST(18%):<span class="gst"></span></p>
+          <p class="mb-1 fw-bold fs-5">Total: $<span class="total"></span></p>
           <a
             href="#"
-            class="btn bg-gray2 w-100"
+            class="btn bg-gray2 w-100 btnH"
             style="border: 2px solid rgb(199, 199, 199); border-radius: 0"
             onclick=" confirmOrder()"
             >Checkout</a
@@ -211,10 +234,10 @@
 
         <ul class="nav col-md-4 justify-content-end pt-3 pe-4">
           <li class="nav-item">
-            <a href="#" class="nav-link ps-2 pe-4 text-white">CONTACT US</a>
+            <a href="#" class="nav-link ps-2 pe-4 linkHover">CONTACT US</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-white">FAQ</a>
+            <a href="#" class="nav-link px-2 linkHover">FAQ</a>
           </li>
         </ul>
       </footer>

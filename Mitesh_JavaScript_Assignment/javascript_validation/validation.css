@@ -1,11 +1,135 @@
 html {
-  font-size: 21px;
+  font-size: 18px;
+  overflow: scroll;
 }
 
-.form {
-  margin: 3rem 0 0 2rem;
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-label {
+form {
+  overflow-x: hidden;
+  padding: 3rem 0 0 2rem !important;
+  background-color: #d1bfa8;
+  color: #412a2a;
+}
+
+label,
+input,
+textarea,
+button {
+  color: #412a2a;
+}
+
+th {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: center;
+  justify-content: center;
+}
+
+td {
+  width: 25vw;
+}
+
+input,
+textarea,
+.dd_state {
+  font-size: 16px;
+  padding: 0.4rem 0.7rem;
+  background-color: transparent;
+  border-width: 1px;
+  font-weight: 600;
+}
+textarea {
+  resize: vertical;
+}
+
+.inp {
+  width: 100%;
+}
+
+.inp:focus {
+  outline: transparent !important;
+}
+
+.interestData,
+.genderData {
+  padding-top: 0.7rem;
+  padding-left: 1rem;
+}
+
+.locations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0 0 1rem;
+}
+
+.location1,
+.location2,
+.location11,
+.location12 {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+}
+
+.dd_state {
   width: 12vw;
+}
+
+#checked1 {
+  margin: 2rem 0 0 1rem;
+  padding-top: 0.7rem;
+  padding-left: 1rem;
+}
+
+.btnTr {
+  width: 35vw !important;
+}
+
+.btns {
+  /* position: absolute; */
+  /* left: 65vw; */
+  padding-left: 35%;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  background-color: #795858;
+  cursor: pointer;
+}
+
+.btn:hover {
+  font-weight: 900;
+  background-color: #8d6868;
+  text-shadow: 1px 1px 1px rgb(66, 50, 50);
+}
+
+.otherBtnArea {
+  display: none;
+}
+
+.focusEle {
+  border-width: 1px;
+  outline: none;
+  border-color: red !important;
+}
+
+.focusEle1 {
+  background-color: red !important;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: #412a2a !important;
 }

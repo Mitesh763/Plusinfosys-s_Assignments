@@ -8,156 +8,246 @@
   </head>
   <body>
     <div class="main">
-      <div class="header"></div>
-      <div class="form">
+      <div class="header" style="background-color: #412a2a; overflow-x: hidden">
+        <img src="../javascript1/imgs/logo_1.png" alt="" />
+      </div>
+      <form>
         <table>
           <tr class="fields field1">
-            <th><label for="fName" id="fName">First Name : </label></th>
+            <th>
+              <label for="fName">First Name : </label>
+            </th>
             <td>
-              <input type="text" name="fName" placeholder="Your name.." />
+              <input
+                type="text"
+                name="fName"
+                class="inp"
+                id="firstName"
+                placeholder="Your name.."
+                onkeydown="return /[a-z]/i.test(event.key)"
+                required
+              />
             </td>
           </tr>
           <tr class="fields field2">
             <th><label for="mName" id="mName">Middle Name : </label></th>
             <td>
-              <input type="text" name="fName" placeholder="Your name.." />
+              <input
+                type="text"
+                name="fName"
+                class="inp"
+                placeholder="Your middle name.."
+                onkeydown="return /[a-z]/i.test(event.key)"
+              />
             </td>
           </tr>
           <tr class="fields field3">
-            <th><label for="lName" id="lName">Last Name : </label></th>
+            <th><label for="lName">Last Name : </label></th>
             <td>
-              <input type="text" name="lName" placeholder="Your last name.." />
+              <input
+                type="text"
+                name="lName"
+                class="inp"
+                id="lastName"
+                placeholder="Your last name.."
+                onkeydown="return /[a-z]/i.test(event.key)"
+                required
+              />
             </td>
           </tr>
 
           <tr class="fields field4">
-            <th><label for="email" id="">Email Address : </label></th>
+            <th><label for="email">Email Address : </label></th>
             <td>
               <input
                 type="email"
                 name="email"
+                class="inp"
+                id="emailAdd"
                 placeholder="Your mail address.."
+                required
               />
             </td>
           </tr>
           <tr class="fields field5">
-            <th><label for="password" id="">Password :</label></th>
+            <th><label for="password">Password :</label></th>
             <td>
               <input
                 type="password"
                 name="password"
+                class="inp"
+                id="password"
                 placeholder="password.."
                 minlength="8"
+                required
               />
             </td>
           </tr>
           <tr class="fields field6">
-            <th><label for="bdate" id="">Birth Date : </label></th>
-            <td><input type="date" name="bdate" placeholder="mm/dd/yyyy" /></td>
+            <th><label for="bdate">Birth Date : </label></th>
+            <td>
+              <textarea
+                value=""
+                name="bdate"
+                class="inp"
+                id="birthDate"
+                placeholder="mm/dd/yyyy"
+                cols="20"
+                required
+              ></textarea>
+            </td>
           </tr>
           <tr class="fields field9">
-            <th><label for="age" id="">Age : </label></th>
-            <td><input type="number" name="age" placeholder="Your Age.." /></td>
+            <th><label for="age">Age : </label></th>
+            <td>
+              <input
+                type="number"
+                name="age"
+                min="1"
+                step="1"
+                class="inp"
+                id="age"
+                maxlength="3"
+                max="555"
+                pattern="[0-9]{4}"
+                placeholder="Your Age.."
+                required
+              />
+            </td>
           </tr>
           <tr class="fields field8">
-            <th><label for="gender" id="">Gender : </label></th>
+            <th><label for="gender" required>Gender : </label></th>
             <td>
-              <input type="radio" name="gender" />
-              <label for="gender" id="">male</label>
-              <input type="radio" name="gender" />
-              <label for="gender" id="">female</label>
+              <div class="genderData" required>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  class="mGender"
+                  value="male"
+                />
+                <label for="gender">male</label>
+                <input
+                  type="radio"
+                  class="fGender"
+                  name="gender"
+                  value="female"
+                />
+                <label for="gender">female</label>
+              </div>
             </td>
           </tr>
           <tr class="fields field9">
-            <th><label for="interest" id="">Interest : </label></th>
+            <th><label for="interest">Interest : </label></th>
+            <td class="interestData">
+              <div class="interestSubDiv">
+                <input type="checkbox" name="interest" />
+                <label for="interest">Sport</label>
+              </div>
+              <div class="interestSubDiv">
+                <input type="checkbox" name="interest" />
+                <label for="interest">Dance</label>
+              </div>
+              <div class="interestSubDiv">
+                <input type="checkbox" name="interest" />
+                <label for="interest">Reading</label>
+              </div>
+              <div class="interestSubDiv">
+                <input type="checkbox" name="interest" class="otherBtn" />
+                <label for="interest">Other</label>
+              </div>
+              <div class="interestSubDiv otherBtnArea">
+                <input type="text" class="inp" />
+              </div>
+            </td>
+          </tr>
+          <tr class="fields field9">
+            <th></th>
             <td>
-              <input type="checkbox" name="interest" />
-              <label for="interest" id="">Sport</label>
-              <input type="checkbox" name="interest" />
-              <label for="interest" id="">Dance</label>
-              <input type="checkbox" name="interest" />
-              <label for="interest" id="">Reading</label>
-              <input type="checkbox" name="interest" />
-              <label for="interest" id="">Other</label>
-              <input type="text" disabled />
+              <div class="locations">
+                <div class="location1">
+                  <label for="loc1">Job Preffered state 1</label>
+                  <select
+                    name="loc1"
+                    class="dd_state"
+                    id="jobState1"
+                    onchange="selecteHandler()"
+                    required
+                  >
+                    <option value="" disabled selected>select</option>
+                    <option value="Gujrat">Gujrat</option>
+                    <option value="Rajsthan">Rajsthan</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                  </select>
+                </div>
+                <div class="location2">
+                  <label for="loc1">Job Preffered city 1</label>
+                  <select name="loc1" class="dd_state" id="jobCity1" required>
+                    <option value="" selected>Please select State</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="fields field9">
+            <th></th>
+            <td>
+              <div class="locations">
+                <div class="location11">
+                  <label for="loc2">Job Preffered state 2</label>
+                  <select
+                    name="loc2"
+                    id="jobState2"
+                    class="dd_state"
+                    onchange="selecteHandler2()"
+                  >
+                    <option value="" selected disabled>select</option>
+                    <option value="Gujrat">Gujrat</option>
+                    <option value="Rajsthan">Rajsthan</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                  </select>
+                </div>
+                <div class="location12">
+                  <label for="loc2">Job Preffered city 2</label>
+                  <select
+                    name="loc2"
+                    class="dd_state"
+                    id="jobCity2"
+                    required
+                    disabled
+                  >
+                    <option value="">select</option>
+                  </select>
+                </div>
+              </div>
             </td>
           </tr>
           <tr>
             <th></th>
-            <td></td>
+            <td>
+              <input type="checkbox" id="checked1" />
+              <span> Terms & Condition</span>
+            </td>
           </tr>
-          <tr>
+          <tr class="btnTr">
             <th></th>
-            <td></td>
+            <td class="btns">
+              <button
+                class="btn btn1"
+                id="submitBtn"
+                onclick="submitValidation(['firstName','lastName','emailAdd','password','birthDate','age','gender','jobState1','jobCity1'])"
+                disabled
+                style="cursor: not-allowed"
+              >
+                Submit
+              </button>
+              <button class="btn btn2">Cancel</button>
+            </td>
           </tr>
         </table>
-        <!-- <div class="fields field1">
-          <label for="fName" id="fName">First Name : </label>
-          <input type="text" name="fName" placeholder="Your name.." />
-        </div>
-        <div class="fields field2">
-          <label for="mName" id="mName">Middle Name : </label>
-          <input type="text" name="mName" placeholder="Your middle name.." />
-        </div>
-        <div class="fields field3">
-          <label for="lName" id="lName">Last Name : </label>
-          <input type="text" name="lName" placeholder="Your last name.." />
-        </div>
-        <div class="fields field4">
-          <label for="email" id="">Email Address : </label>
-          <input type="email" name="email" placeholder="Your mail address.." />
-        </div>
-        <div class="fields field5">
-          <label for="password" id="">Password :</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="password.."
-            minlength="8"
-          />
-        </div>
-        <div class="fields field6">
-          <label for="bdate" id="">Birth Date : </label>
-          <input type="date" name="bdate" placeholder="mm/dd/yyyy" />
-        </div>
-        <div class="fields field7">
-          <label for="age" id="">Age : </label>
-          <input type="number" name="age" placeholder="Your Age.." />
-        </div>
-        <div class="fields field8">
-          <label for="gender" id="">Gender : </label>
-          <input type="radio" name="gender" />
-          <label for="gender" id="">male</label>
-          <input type="radio" name="gender" />
-          <label for="gender" id="">female</label>
-        </div>
-        <div class="fields field9">
-          <label for="interest" id="">Interest : </label>
-          <input type="checkbox" name="interest" />
-          <label for="interest" id="">Sport</label>
-          <input type="checkbox" name="interest" />
-          <label for="interest" id="">Dance</label>
-          <input type="checkbox" name="interest" />
-          <label for="interest" id="">Reading</label>
-          <input type="checkbox" name="interest" />
-          <label for="interest" id="">Other</label>
-          <input type="text" disabled />
-        </div> -->
-        <div class="locations">
-          <div class="location1">
-            <label for="loc1" id="">Job Preffered state 1</label>
-            <select name="loc1" id="">
-              <option value="">select</option>
-              <option value="gujrat">Gujrat</option>
-              <option value="rajsthan">Rajsthan</option>
-              <option value="maharashtra">Maharashtra</option>
-              <option value="up">Uttarpradesh</option>
-              <option value="delhi">Delhi</option>
-            </select>
-          </div>
-          <div class="location2"></div>
-        </div>
-      </div>
+      </form>
     </div>
+
+    <script src="validation.js"></script>
   </body>
 </html>
