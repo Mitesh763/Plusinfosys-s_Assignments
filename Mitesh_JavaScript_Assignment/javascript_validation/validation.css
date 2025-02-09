@@ -9,10 +9,14 @@ body {
   padding: 0;
 }
 
+main {
+  background-color: #d1bfa8;
+}
+
 form {
   overflow-x: hidden;
   padding: 3rem 0 0 2rem !important;
-  background-color: #d1bfa8;
+  /* background-color: #d1bfa8; */
   color: #412a2a;
 }
 

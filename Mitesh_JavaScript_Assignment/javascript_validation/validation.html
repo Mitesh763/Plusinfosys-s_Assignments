@@ -125,6 +125,7 @@
                   id="gender"
                   class="mGender"
                   value="male"
+                  required
                 />
                 <label for="gender">male</label>
                 <input
@@ -139,21 +140,26 @@
           </tr>
           <tr class="fields field9">
             <th><label for="interest">Interest : </label></th>
-            <td class="interestData">
+            <td class="interestData" required>
               <div class="interestSubDiv">
-                <input type="checkbox" name="interest" />
+                <input
+                  type="checkbox"
+                  class="sport"
+                  id="interest"
+                  name="interest"
+                />
                 <label for="interest">Sport</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" name="interest" />
+                <input type="checkbox" class="dance" name="interest" />
                 <label for="interest">Dance</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" name="interest" />
+                <input type="checkbox" class="read" name="interest" />
                 <label for="interest">Reading</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" name="interest" class="otherBtn" />
+                <input type="checkbox" name="interest" class="otherBtn other" />
                 <label for="interest">Other</label>
               </div>
               <div class="interestSubDiv otherBtnArea">
@@ -235,7 +241,7 @@
               <button
                 class="btn btn1"
                 id="submitBtn"
-                onclick="submitValidation(['firstName','lastName','emailAdd','password','birthDate','age','gender','jobState1','jobCity1'])"
+                onclick="submitValidation(['firstName','lastName','emailAdd','password','birthDate','age','gender','interest' ,'jobState1','jobCity1'])"
                 disabled
                 style="cursor: not-allowed"
               >

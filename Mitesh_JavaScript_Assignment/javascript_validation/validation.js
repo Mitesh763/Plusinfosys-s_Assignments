@@ -9,21 +9,10 @@ const cities1 = [
 let missingId = "";
 
 function submitValidation(idArr) {
-  let isCheck = false;
-  if (
-    document.querySelector(".mGender").checked ||
-    document.querySelector(".fGender").checked
-  ) {
-    isCheck = true;
-  }
   idArr.map((id) => {
     console.log(id);
     if (document.getElementById(id).value.length <= 0) {
       document.getElementById(id).classList.add("focusEle");
-      if (id === "gender" && !isCheck) {
-        missingId += "\n" + id;
-        isCheck = false;
-      }
       // alert(id + " is required");
       missingId += "\n" + id;
     } else {
@@ -35,6 +24,32 @@ function submitValidation(idArr) {
     alert(missingId + "\n\n are required fields");
     missingId = "";
     return false;
+  }
+
+  let isCheck = false;
+  if (
+    document.querySelector(".mGender").checked ||
+    document.querySelector(".fGender").checked
+  ) {
+    isCheck = true;
+  }
+  if (!isCheck) {
+    alert("Select your gender");
+    return false;
+  }
+
+  let interestCheck = false;
+  if (
+    document.querySelector(".sport").checked === true ||
+    document.querySelector(".dance").checked === true ||
+    document.querySelector(".read").checked === true ||
+    document.querySelector(".other").checked === true
+  ) {
+    interestCheck = true;
+  }
+  if (!interestCheck) {
+    alert("Select at least one interest");
+    // return false;
   }
 
   let rege = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
