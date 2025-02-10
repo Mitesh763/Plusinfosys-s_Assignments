@@ -143,19 +143,19 @@ function confirmOrder() {
     alert(
       `Total item: ` +
         document.querySelector(".totalItems").innerText +
-        ` \n Total Amount: $` +
+        ` \n Total Amount: ` +
         document.querySelector(".total").innerText +
         ` \n Bill Date: ` +
         date.getDate() +
         `/` +
-        date.getMonth() +
+        (date.getMonth() + 1) +
         `/` +
         date.getFullYear() +
         ` \n Delivery Date: ` +
         date.getDate() +
-        `/` +
-        date.getMonth() +
-        `/` +
+        ` ` +
+        date.toLocaleString("default", { month: "short" }) +
+        ` ` +
         (date.getFullYear() + 1) +
         `\n\n\n Confirm order? `
     );
@@ -165,13 +165,18 @@ function confirmOrder() {
 }
 
 function removeTotal(inputValue, price) {
-  totalItems.innerText = Number(
-    Number(document.querySelector(".totalItems").innerText) - Number(inputValue)
-  );
-  totalPrice.innerText = Number(
-    Math.round(Number(document.querySelector(".totalPrice").innerText) - price)
-  );
-  calGSTandTotal();
+  if (inputValue > 0 && price > 0) {
+    totalItems.innerText = Number(
+      Number(document.querySelector(".totalItems").innerText) -
+        Number(inputValue)
+    );
+    totalPrice.innerText = Number(
+      Math.round(
+        Number(document.querySelector(".totalPrice").innerText) - price
+      )
+    );
+    calGSTandTotal();
+  }
 }
 
 function calTotal(quantity, price) {

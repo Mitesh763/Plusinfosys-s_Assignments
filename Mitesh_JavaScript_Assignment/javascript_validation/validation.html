@@ -110,6 +110,7 @@
                 maxlength="3"
                 max="555"
                 pattern="[0-9]{4}"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                 placeholder="Your Age.."
                 required
               />
@@ -131,10 +132,11 @@
                 <input
                   type="radio"
                   class="fGender"
+                  id="female"
                   name="gender"
                   value="female"
                 />
-                <label for="gender">female</label>
+                <label for="female">female</label>
               </div>
             </td>
           </tr>
@@ -147,23 +149,34 @@
                   class="sport"
                   id="interest"
                   name="interest"
+                  required
                 />
                 <label for="interest">Sport</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" class="dance" name="interest" />
-                <label for="interest">Dance</label>
+                <input
+                  type="checkbox"
+                  id="dance"
+                  class="dance"
+                  name="interest"
+                />
+                <label for="dance">Dance</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" class="read" name="interest" />
-                <label for="interest">Reading</label>
+                <input type="checkbox" id="read" class="read" name="interest" />
+                <label for="read">Reading</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" name="interest" class="otherBtn other" />
-                <label for="interest">Other</label>
+                <input
+                  type="checkbox"
+                  id="other"
+                  name="interest"
+                  class="otherBtn other"
+                />
+                <label for="other">Other</label>
               </div>
               <div class="interestSubDiv otherBtnArea">
-                <input type="text" class="inp" />
+                <input type="text" class="inp" required />
               </div>
             </td>
           </tr>
@@ -188,7 +201,13 @@
                 </div>
                 <div class="location2">
                   <label for="loc1">Job Preffered city 1</label>
-                  <select name="loc1" class="dd_state" id="jobCity1" required>
+                  <select
+                    name="loc1"
+                    class="dd_state"
+                    id="jobCity1"
+                    required
+                    disabled
+                  >
                     <option value="" selected>Please select State</option>
                   </select>
                 </div>
@@ -222,7 +241,7 @@
                     required
                     disabled
                   >
-                    <option value="">select</option>
+                    <option value="">Please select State</option>
                   </select>
                 </div>
               </div>
@@ -231,8 +250,10 @@
           <tr>
             <th></th>
             <td>
-              <input type="checkbox" id="checked1" />
-              <span> Terms & Condition</span>
+              <input type="checkbox" id="checked1" style="cursor: pointer" />
+              <label for="checked1" style="cursor: pointer">
+                Terms & Condition</label
+              >
             </td>
           </tr>
           <tr class="btnTr">
