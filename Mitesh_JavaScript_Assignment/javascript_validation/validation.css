@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+.header {
+  padding: 1rem 0;
+}
+
 main {
   background-color: #d1bfa8;
 }
@@ -47,6 +51,8 @@ textarea,
   padding: 0.4rem 0.7rem;
   background-color: transparent;
   border-width: 1px;
+  border-color: #412a2a;
+  /* border-radius: 10px; */
   font-weight: 600;
 }
 textarea {

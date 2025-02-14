@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -34,31 +36,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <!-- swiper -->
+
+    <!-- dropkick -->
+    <link rel="stylesheet" href="./css/dropkick.css" />
+    <script src="./js/dropkick.js"></script>
+    <!-- dropkick -->
 
     <link rel="stylesheet" href="search.css" />
-
-    <style>
-      .swiper {
-        width: 100%;
-        height: 100%;
-      }
-
-      /* .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      } */
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/nouislider.min.css" />
 
     <title>Search</title>
   </head>
@@ -135,32 +121,35 @@
             <div class="col-lg-2 col-md-2 ps-lg-3 col-sm-6 ps-0 notMobile">
               <label for="cause" class="color-blue fw-bold mb-3">Cause</label>
               <div class="d-flex flex-wrap">
-                <div class="form-check me-3">
+                <div class="form-check checkBoxVal me-3">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     value="volunteer"
                     id="inlineCheckbox1"
+                    onclick="aaplyFilter()"
                   />
                   <label class="form-check-label" for="inlineCheckbox1"
                     >Volunteer</label
                   >
                 </div>
-                <div class="form-check me-3">
+                <div class="form-check checkBoxVal me-3">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     value="teach"
                     id="teach"
+                    onclick="aaplyFilter()"
                   />
                   <label class="form-check-label" for="teach">Teach</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check checkBoxVal">
                   <input
                     class="form-check-input"
                     type="checkbox"
                     value="intern"
                     id="intern1"
+                    onclick="aaplyFilter()"
                   />
                   <label class="form-check-label" for="intern1">Intern</label>
                 </div>
@@ -178,6 +167,7 @@
                 type="text"
                 class="form-control bg-white"
                 id="searchCountry"
+                onchange="aaplyFilter()"
                 placeholder="Search Country"
                 style="border-radius: 2px; border: 1px solid #8f8f8f"
               />
@@ -197,8 +187,10 @@
                   border-radius: 2px !important;
                   border: 1px solid #8f8f8f !important;
                 "
+                onchange="aaplyFilter()"
               >
-                <option selected>Animal Conservation</option>
+                <option selected>Select Activity</option>
+                <option>Animal Conservation</option>
                 <option>Teach English</option>
                 <option>Medical Volunteering</option>
               </select>
@@ -237,12 +229,9 @@
                   <span class="deskBtn">More filters</span>
                   <span class="tabBtn">...</span>
                   <span
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bgColor-blue btn-clicked"
-                    >4
-                    <span class="visually-hidden color-blue"
-                      >unread messages</span
-                    ></span
-                  >
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bgColor-blue btn-clicked filterVal"
+                    >0
+                  </span>
                 </button>
               </a>
             </div>
@@ -277,25 +266,32 @@
                     >Reset</label
                   >
                 </div>
-
                 <div class="col">
-                  <select class="form-select shadow-sm pb-3 monthVal">
-                    <option selected disabled>month</option>
-                    <option>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
+                  <select
+                    id="month_start"
+                    class="form-select shadow-sm pb-3 monthVal"
+                    onchange="aaplyFilter()"
+                  >
+                    <option>month</option>
+                    <option value="jan">January</option>
+                    <option value="feb">February</option>
+                    <option value="march">March</option>
+                    <option value="apr">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="jul">July</option>
+                    <option value="aug">August</option>
+                    <option value="sept">September</option>
+                    <option value="oct">October</option>
+                    <option value="nov">November</option>
+                    <option value="dec">December</option>
                   </select>
-                  <select class="form-select shadow-sm mt-2 pb-3 monthVal2">
-                    <option selected disabled>month</option>
+                  <select
+                    id="month_end"
+                    class="form-select shadow-sm mt-2 pb-3 monthVal2"
+                    onchange="aaplyFilter()"
+                  >
+                    <option>month</option>
                     <option>January</option>
                     <option>February</option>
                     <option>March</option>
@@ -312,16 +308,24 @@
                 </div>
 
                 <div class="col-2 ps-0 ps-0 pe-0">
-                  <select class="form-select shadow-sm pb-3 dayVal">
-                    <option selected disabled>dd</option>
+                  <select
+                    id="day_start"
+                    class="form-select shadow-sm pb-3 dayVal"
+                    onchange="aaplyFilter()"
+                  >
+                    <option>dd</option>
                     <script>
                       for (let i = 1; i <= 31; i++) {
                         document.write(`<option>${i}</option>`);
                       }
                     </script>
                   </select>
-                  <select class="form-select shadow-sm mt-2 pb-3 dayVal2">
-                    <option selected disabled>dd</option>
+                  <select
+                    id="day_end"
+                    class="form-select shadow-sm mt-2 pb-3 dayVal2"
+                    onchange="aaplyFilter()"
+                  >
+                    <option>dd</option>
                     <script>
                       for (let i = 1; i <= 31; i++) {
                         document.write(`<option>${i}</option>`);
@@ -331,8 +335,12 @@
                 </div>
 
                 <div class="col">
-                  <select class="form-select shadow-sm pb-3 yearVal">
-                    <option selected disabled>yyyy</option>
+                  <select
+                    id="year_start"
+                    class="form-select shadow-sm pb-3 yearVal"
+                    onchange="aaplyFilter()"
+                  >
+                    <option selected class="hidden-option">yyyy</option>
                     <script>
                       const currentYear = new Date().getFullYear();
                       for (let i = currentYear; i >= 2000; i--) {
@@ -341,9 +349,11 @@
                     </script>
                   </select>
                   <select
+                    id="year-end"
                     class="form-select shadow-sm mt-2 pb-3 align-self-center yearVal2"
+                    onchange="aaplyFilter()"
                   >
-                    <option selected disabled>yyyy</option>
+                    <option selected class="hidden-option">yyyy</option>
                     <script>
                       for (let i = currentYear; i >= 2000; i--) {
                         document.write(`<option>${i}</option>`);
@@ -368,38 +378,25 @@
                 </div>
                 <div class="container">
                   <div style="margin-bottom: 10px">
-                    <input
-                      type="number"
-                      min="1"
-                      max="10"
-                      oninput="validity.valid||(value='10');"
-                      id="min_price"
-                      class="price-range-field"
-                    />
+                    <span id="min_price">1</span>
                     <span>week</span>
                     <span>-</span>
-                    <input
-                      type="number"
-                      min="1"
-                      max="10"
-                      oninput="validity.valid||(value='10');"
-                      id="max_price"
-                      class="price-range-field"
-                    />
+                    <span id="max_price">10</span>
                     <span>weeks</span>
                   </div>
-                  <div
-                    id="slider-range"
-                    class="price-filter-range"
-                    name="rangeInput"
-                  ></div>
+                  <div id="slider"></div>
                 </div>
               </div>
 
               <div class="col-lg-4">
                 <label class="col-12 mb-2 color-blue">Minimum Age</label>
-                <select class="form-select mt-2 pb-3" id="minAgeSelect">
-                  <option selected disabled>--</option>
+                <select
+                  id="min_age"
+                  class="form-select mt-2 pb-3 ageVal"
+                  onchange="aaplyFilter()"
+                >
+                  <!-- id="minAgeSelect" -->
+                  <option selected>--</option>
                   <script>
                     for (let i = 18; i <= 60; i++) {
                       document.write(`<option value="${i}">${i}</option>`);
@@ -445,21 +442,195 @@
         class="container-fluid d-flex align-self-center justify-content-center flex-row"
       >
         <div class="row ms-2 mx-md-1 mx-lg-5">
-          <!-- carousel-1 -->
+          <!-- swiper 1 -->
           <div
-            class="col-12 col-md-4 col-lg-4 ps-0 ms-0"
-            style="margin-bottom: 0.5rem"
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
           >
             <div class="card border-0">
-              <div id="myC1" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <!-- swiper 2 -->
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <!-- swiper 3 -->
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
                       <h6
                         class="card-title bg-white px-2 py-1 rounded-2 fs-5"
                         style="
@@ -472,69 +643,9 @@
                       </h6>
                     </div>
                   </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM lorem lorem
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM lorem lorem
-                      </h6>
-                    </div>
-                  </div>
                 </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myC1"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myC1"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
               </div>
               <div class="card-body ps-0">
                 <h6 class="card-text">Volunteer with Tigers</h6>
@@ -553,1519 +664,7 @@
           </div>
           <br />
 
-          <!-- carousel-2 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 0.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc2" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc2"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc2"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-3 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 0.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc3" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc3"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc3"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-4 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 0.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc4" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc4"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc4"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-5 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc15" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc15"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc15"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-6 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc5" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc5"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc5"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-7 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc6" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc6"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc6"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-8 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc7" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc7"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc7"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-9 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc8" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc8"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc8"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-10 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc9" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc9"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc9"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-11 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc10" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc10"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc10"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-12 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc11" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc11"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc11"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-13 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc12" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc12"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc12"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-14 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc13" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc13"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc13"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- carousel-15 -->
-          <div
-            class="col-12 col-md-4 col-lg-4 ps-0"
-            style="margin-bottom: 1.5rem"
-          >
-            <div class="card border-0">
-              <div id="myc14" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo02.jpg"
-                      alt="First slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        LOREM IPSUM
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo01.jpg"
-                      alt="Second slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        VOLUNTEERING
-                      </h6>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100"
-                      src="./images/photo03.jpg"
-                      alt="Third slide"
-                    />
-                    <div class="card-img-overlay">
-                      <h6
-                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
-                        style="
-                          color: #eb374e;
-                          display: inline-block;
-                          font-size: 14px !important;
-                        "
-                      >
-                        DONOR SIT
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="carousel-control-prev"
-                  href="#myc14"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#myc14"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only"></span>
-                </a>
-              </div>
-              <div class="card-body ps-0">
-                <h6 class="card-text">Volunteer with Tigers</h6>
-                <img
-                  src="./images/volunteer-logo01.png"
-                  class="img-fluid rounded-circle main"
-                  style="width: 20px"
-                  alt=""
-                />
-                <span class="color-blue">Love Volunteers</span>
-                <p>
-                  $215/week <span class="text-red"> . </span> 1-12 week duration
-                </p>
-              </div>
-            </div>
-          </div>
-          <br />
-
-          <!-- swiper -->
+          <!-- swiper 4 -->
           <div
             class="col-12 col-md-4 col-lg-4 ps-0"
             style="margin-bottom: 1.5rem"
@@ -2074,8 +673,8 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="./images/photo01.jpg" alt="ph1" />
-                    <div class="card-img-overlay" style="left: -54%">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
                       <h6
                         class="card-title bg-white px-2 py-1 rounded-2 fs-5"
                         style="
@@ -2089,7 +688,7 @@
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <img src="./images/photo02.jpg" alt="ph2" />
+                    <img src="./images/photo01.jpg" alt="ph2" />
                     <div class="card-img-overlay" style="right: 60%">
                       <h6
                         class="card-title bg-white px-2 py-1 rounded-2 fs-5"
@@ -2146,8 +745,8 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="./images/photo01.jpg" alt="ph1" />
-                    <div class="card-img-overlay" style="left: -54%">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
                       <h6
                         class="card-title bg-white px-2 py-1 rounded-2 fs-5"
                         style="
@@ -2161,7 +760,727 @@
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <img src="./images/photo02.jpg" alt="ph2" />
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-md-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        VOLUNTEERING
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo03.jpg" alt="ph3" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        DONOR SIT
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+              <div class="card-body ps-0">
+                <h6 class="card-text">Volunteer with Tigers</h6>
+                <img
+                  src="./images/volunteer-logo01.png"
+                  class="img-fluid rounded-circle main"
+                  style="width: 20px"
+                  alt=""
+                />
+                <span class="color-blue">Love Volunteers</span>
+                <p>
+                  $215/week <span class="text-red"> . </span> 1-12 week duration
+                </p>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col-12 col-sm-4 col-lg-4 ps-0"
+            style="margin-bottom: 1.5rem"
+          >
+            <div class="card border-0">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/photo02.jpg" alt="ph1" />
+                    <div class="card-img-overlay" style="right: 60%">
+                      <h6
+                        class="card-title bg-white px-2 py-1 rounded-2 fs-5"
+                        style="
+                          color: #eb374e;
+                          display: inline-block;
+                          font-size: 14px !important;
+                        "
+                      >
+                        LOREM IPSUM
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/photo01.jpg" alt="ph2" />
                     <div class="card-img-overlay" style="right: 60%">
                       <h6
                         class="card-title bg-white px-2 py-1 rounded-2 fs-5"
@@ -2236,7 +1555,7 @@
 
       <!-- **************pagination -->
       <footer
-        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-secondary"
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top bg-secondary"
       >
         <img
           src="./images/logo_1.png"
@@ -2266,6 +1585,12 @@
     </main>
 
     <script>
+      function aaplyFilter1() {
+        console.log("hello");
+      }
+    </script>
+
+    <script>
       let autoTags = [
         "India",
         "Austrelia",
@@ -2286,17 +1611,42 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       var swiper = new Swiper(".mySwiper", {
-        loop: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          2500: {
+            items: 1,
+          },
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
       });
     </script>
+
+    <!-- nouislider -->
+    <script src="./js/nouislider.min.js"></script>
+    <script></script>
+
     <!-- swiper -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      $(function () {
+        $(
+          "#activitySelect, #month_start, #month_end, #day_start, #day_end,#year_start, #year-end"
+        ).dropkick({
+          mobile: true,
+        });
+        $("#min_age").dropkick({
+          mobile: true,
+        });
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

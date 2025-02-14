@@ -126,3 +126,12 @@ crossMenu.addEventListener("click", () => {
   pages.classList.add("pages");
   pages.classList.remove("pagesOverlay");
 });
+
+window.onload = function () {
+  const firstEnabledInput = document.querySelector("input");
+  if (firstEnabledInput) {
+    firstEnabledInput.focus();
+    firstEnabledInput.style.caretColor = "red";
+    firstEnabledInput.style.fontSize = "15px";
+  }
+};

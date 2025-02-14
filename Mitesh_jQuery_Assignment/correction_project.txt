@@ -1,0 +1,5 @@
+banner
+responsive
+datepicker
+logo in responsive
+table responsive, table body data

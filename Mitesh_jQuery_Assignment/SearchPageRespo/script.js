@@ -6,121 +6,149 @@ $(window).scroll(function () {
   }
 });
 
-$(".more-filters-btn").click(function () {
-  $this.find(".more-filters").slideToggle();
+var slider = document.getElementById("slider");
+
+noUiSlider.create(slider, {
+  start: [1, 10],
+  connect: true,
+  range: {
+    min: 1,
+    max: 10,
+  },
 });
 
-$(document).ready(function () {
-  // range selection
-  $("#min_price,#max_price").on("change", function () {
-    var min_price_range = parseInt($("#min_price").val());
+let minVal = document.querySelector("#min_price");
+let maxVal = document.querySelector("#max_price");
 
-    var max_price_range = parseInt($("#max_price").val());
-
-    if (min_price_range > max_price_range) {
-      $("#max_price").val(min_price_range);
-    }
-
-    $("#slider-range").slider({
-      values: [min_price_range, max_price_range],
-    });
-  });
-
-  $("#min_price,#max_price").on("paste keyup", function () {
-    var min_price_range = parseInt($("#min_price").val());
-
-    var max_price_range = parseInt($("#max_price").val());
-
-    if (min_price_range == max_price_range) {
-      max_price_range = min_price_range + 100;
-
-      $("#min_price").val(min_price_range);
-      $("#max_price").val(max_price_range);
-    }
-
-    $("#slider-range").slider({
-      values: [min_price_range, max_price_range],
-    });
-  });
-
-  $(document).ready(function () {
-    $("#min_price,#max_price").on("change", function () {
-      $("#price-range-submit").show();
-
-      var min_price_range = parseInt($("#min_price").val());
-
-      var max_price_range = parseInt($("#max_price").val());
-
-      if (min_price_range > max_price_range) {
-        $("#max_price").val(min_price_range);
-      }
-
-      $("#slider-range").slider({
-        values: [min_price_range, max_price_range],
-      });
-    });
-
-    $("#min_price,#max_price").on("paste keyup", function () {
-      $("#price-range-submit").show();
-
-      var min_price_range = parseInt($("#min_price").val());
-
-      var max_price_range = parseInt($("#max_price").val());
-
-      if (min_price_range == max_price_range) {
-        max_price_range = min_price_range + 100;
-
-        $("#min_price").val(min_price_range);
-        $("#max_price").val(max_price_range);
-      }
-
-      $("#slider-range").slider({
-        values: [min_price_range, max_price_range],
-      });
-    });
-
-    $(function () {
-      $("#slider-range").slider({
-        range: true,
-        orientation: "horizontal",
-        min: 1,
-        max: 10,
-        values: [1, 10],
-        step: 1,
-
-        slide: function (event, ui) {
-          if (ui.values[0] == ui.values[1]) {
-            return false;
-          }
-
-          $("#min_price").val(ui.values[0]);
-          $("#max_price").val(ui.values[1]);
-        },
-      });
-
-      $("#min_price").val($("#slider-range").slider("values", 0));
-      $("#max_price").val($("#slider-range").slider("values", 1));
-    });
-  });
+slider.noUiSlider.on("update", function () {
+  let handle = slider.noUiSlider.get();
+  minVal.innerText = Math.round(handle[0]);
+  maxVal.innerText = Math.round(handle[1]);
+  aaplyFilter();
 });
 
 // date reset
 let resetBtnDate = document.querySelector(".resetBtnDate");
 resetBtnDate.addEventListener("click", () => {
-  document.querySelector(".monthVal").value = "month";
-  document.querySelector(".monthVal2").value = "month";
-  document.querySelector(".dayVal").value = "dd";
-  document.querySelector(".dayVal2").value = "dd";
-  document.querySelector(".yearVal").value = "yyyy";
-  document.querySelector(".yearVal2").value = "yyyy";
+  document.querySelector("#dk1-combobox").innerText = "month";
+  document.querySelector("#month_start").value = "month";
+  document
+    .querySelector("#dk1-combobox")
+    .setAttribute("aria-activedescendant", "dk-month");
+  let liTag = document.querySelectorAll("#dk1-listbox>li");
+  liTag.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk1-month").classList.add("dk-option-selected");
+
+  // dk-2
+  document.querySelector("#dk2-combobox").innerText = "month";
+  document.querySelector("#month_end").value = "month";
+  document
+    .querySelector("#dk2-combobox")
+    .setAttribute("aria-activedescendant", "dk-month");
+  let liTag2 = document.querySelectorAll("#dk2-listbox>li");
+  liTag2.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk2-month").classList.add("dk-option-selected");
+
+  // dk-3
+  document.querySelector("#dk3-combobox").innerText = "dd";
+  document.querySelector("#day_start").value = "dd";
+  document
+    .querySelector("#dk3-combobox")
+    .setAttribute("aria-activedescendant", "dk-dd");
+  let liTag3 = document.querySelectorAll("#dk3-listbox>li");
+  liTag3.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk3-dd").classList.add("dk-option-selected");
+
+  //dk-4
+  document.querySelector("#dk4-combobox").innerText = "dd";
+  document.querySelector("#day_end").value = "dd";
+  document
+    .querySelector("#dk4-combobox")
+    .setAttribute("aria-activedescendant", "dk-dd");
+  let liTag4 = document.querySelectorAll("#dk4-listbox>li");
+  liTag4.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk4-dd").classList.add("dk-option-selected");
+
+  //dk-5
+  document.querySelector("#dk5-combobox").innerText = "yyyy";
+  document.querySelector("#year_start").value = "yyyy";
+  document
+    .querySelector("#dk5-combobox")
+    .setAttribute("aria-activedescendant", "dk-yyyy");
+  let liTag5 = document.querySelectorAll("#dk5-listbox>li");
+  liTag5.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk5-yyyy").classList.add("dk-option-selected");
+
+  // dk-6
+  document.querySelector("#dk6-combobox").innerText = "yyyy";
+  document.querySelector("#year-end").value = "yyyy";
+  document
+    .querySelector("#dk6-combobox")
+    .setAttribute("aria-activedescendant", "dk-yyyy");
+  let liTag6 = document.querySelectorAll("#dk6-listbox>li");
+  liTag6.forEach((tag) => {
+    tag.classList.remove("dk-option-selected");
+  });
+  document.querySelector("#dk6-yyyy").classList.add("dk-option-selected");
+
+  aaplyFilter();
 });
 
 // range reset
 let resetBtnRange = document.querySelector(".resetBtnRange");
 resetBtnRange.addEventListener("click", () => {
-  $("#min_price").val(1);
-  $("#max_price").val(10);
-  $("#slider-range").slider({
-    values: [1, 10],
-  });
+  minVal.innerText = 1;
+  maxVal.innerText = 10;
+  slider.noUiSlider.set(["1.00", "10.00"]);
 });
+
+function aaplyFilter() {
+  let fValue = 0;
+  let filterVal = document.querySelector(".filterVal");
+
+  if (
+    document.querySelector("#inlineCheckbox1").checked === true ||
+    document.querySelector("#teach").checked === true ||
+    document.querySelector("#intern1").checked === true
+  ) {
+    fValue = fValue + 1;
+  }
+
+  if (document.querySelector("#searchCountry").value.length > 0) {
+    fValue = fValue + 1;
+  }
+
+  if (document.querySelector("#activitySelect").value !== "Select Activity") {
+    fValue = fValue + 1;
+  }
+
+  if (
+    document.querySelector("#month_start").value !== "month" ||
+    document.querySelector("#day_start").value !== "dd" ||
+    document.querySelector("#year_start").value !== "yyyy" ||
+    document.querySelector("#month_end").value !== "month" ||
+    document.querySelector("#day_end").value !== "dd" ||
+    document.querySelector("#year-end").value !== "yyyy"
+  ) {
+    fValue = fValue + 1;
+  }
+
+  if (minVal.innerHTML > 1 || maxVal.innerHTML < 10) {
+    fValue = fValue + 1;
+  }
+
+  if (document.querySelector("#min_age").value !== "--") {
+    fValue = fValue + 1;
+  }
+  filterVal.innerText = fValue;
+}

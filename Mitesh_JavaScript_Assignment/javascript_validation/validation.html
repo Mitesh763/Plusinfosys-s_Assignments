@@ -9,7 +9,7 @@
   <body>
     <div class="main">
       <div class="header" style="background-color: #412a2a; overflow-x: hidden">
-        <img src="../javascript1/imgs/logo_1.png" alt="" />
+        <img src="../javascript_overview/imgs/logo_1.png" alt="" />
       </div>
       <form>
         <table>
@@ -25,6 +25,7 @@
                 id="firstName"
                 placeholder="Your name.."
                 onkeydown="return /[a-z]/i.test(event.key)"
+                oninput="removeBdr()"
                 required
               />
             </td>
@@ -38,6 +39,7 @@
                 class="inp"
                 placeholder="Your middle name.."
                 onkeydown="return /[a-z]/i.test(event.key)"
+                oninput="removeBdr()"
               />
             </td>
           </tr>
@@ -51,6 +53,7 @@
                 id="lastName"
                 placeholder="Your last name.."
                 onkeydown="return /[a-z]/i.test(event.key)"
+                oninput="removeBdr()"
                 required
               />
             </td>
@@ -65,6 +68,7 @@
                 class="inp"
                 id="emailAdd"
                 placeholder="Your mail address.."
+                oninput="removeBdr()"
                 required
               />
             </td>
@@ -79,6 +83,7 @@
                 id="password"
                 placeholder="password.."
                 minlength="8"
+                oninput="removeBdr()"
                 required
               />
             </td>
@@ -93,6 +98,7 @@
                 id="birthDate"
                 placeholder="mm/dd/yyyy"
                 cols="20"
+                onkeyup="removeBdr()"
                 required
               ></textarea>
             </td>
@@ -112,6 +118,7 @@
                 pattern="[0-9]{4}"
                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                 placeholder="Your Age.."
+                oninput="removeBdr()"
                 required
               />
             </td>
@@ -126,6 +133,7 @@
                   id="gender"
                   class="mGender"
                   value="male"
+                  oninput="removeBdr()"
                   required
                 />
                 <label for="gender">male</label>
@@ -135,6 +143,7 @@
                   id="female"
                   name="gender"
                   value="female"
+                  oninput="removeBdr()"
                 />
                 <label for="female">female</label>
               </div>
@@ -149,6 +158,7 @@
                   class="sport"
                   id="interest"
                   name="interest"
+                  oninput="removeBdr()"
                   required
                 />
                 <label for="interest">Sport</label>
@@ -159,11 +169,18 @@
                   id="dance"
                   class="dance"
                   name="interest"
+                  oninput="removeBdr()"
                 />
                 <label for="dance">Dance</label>
               </div>
               <div class="interestSubDiv">
-                <input type="checkbox" id="read" class="read" name="interest" />
+                <input
+                  type="checkbox"
+                  id="read"
+                  class="read"
+                  oninput="removeBdr()"
+                  name="interest"
+                />
                 <label for="read">Reading</label>
               </div>
               <div class="interestSubDiv">
@@ -172,11 +189,18 @@
                   id="other"
                   name="interest"
                   class="otherBtn other"
+                  oninput="removeBdr()"
                 />
                 <label for="other">Other</label>
               </div>
               <div class="interestSubDiv otherBtnArea">
-                <input type="text" class="inp" required />
+                <input
+                  type="text"
+                  id="inp"
+                  class="inp"
+                  oninput="removeBdr()"
+                  required
+                />
               </div>
             </td>
           </tr>
@@ -190,7 +214,8 @@
                     name="loc1"
                     class="dd_state"
                     id="jobState1"
-                    onchange="selecteHandler()"
+                    onchange="removeBdr()"
+                    oninput="selecteHandler()"
                     required
                   >
                     <option value="" disabled selected>select</option>
@@ -205,6 +230,7 @@
                     name="loc1"
                     class="dd_state"
                     id="jobCity1"
+                    onselect="removeBdr()"
                     required
                     disabled
                   >
@@ -223,8 +249,9 @@
                   <select
                     name="loc2"
                     id="jobState2"
+                    onselect="removeBdr()"
                     class="dd_state"
-                    onchange="selecteHandler2()"
+                    oninput="selecteHandler2()"
                   >
                     <option value="" selected disabled>select</option>
                     <option value="Gujrat">Gujrat</option>
@@ -238,6 +265,7 @@
                     name="loc2"
                     class="dd_state"
                     id="jobCity2"
+                    onselect="removeBdr()"
                     required
                     disabled
                   >
@@ -262,6 +290,7 @@
               <button
                 class="btn btn1"
                 id="submitBtn"
+                type="submit"
                 onclick="submitValidation(['firstName','lastName','emailAdd','password','birthDate','age','gender','interest' ,'jobState1','jobCity1'])"
                 disabled
                 style="cursor: not-allowed"

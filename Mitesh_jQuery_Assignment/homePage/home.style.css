@@ -21,7 +21,7 @@ body {
   right: 0;
   top: 0 !important;
   z-index: 10;
-  background-color: rgba(133, 133, 133, 0.856);
+  background-color: #454848;
   margin-bottom: 0 !important;
   padding: 0.5rem 1rem;
 }
@@ -62,13 +62,16 @@ body {
   position: sticky;
   align-items: center;
   border-bottom: 2px solid white;
-  margin: 0 45px 20px;
+  padding: 0 17px;
+  margin: 0;
 }
 
 .navbar > img {
   width: 12%;
   height: 47px;
-  margin: 1% 0;
+  margin: 1% 0 0 0;
+  border-bottom: 3px solid white;
+  padding-bottom: 1rem;
 }
 
 .two_pages {
@@ -110,7 +113,7 @@ body {
   font-size: 14px;
   color: white;
   position: absolute;
-  right: 0;
+  right: 20px;
   margin-bottom: 0 !important;
 }
 
@@ -173,13 +176,18 @@ th {
   font-size: 15px;
 }
 
-td > select,
-td > select {
-  width: 18vw;
-  padding: 6% 12%;
+/* td > select,
+td > select { */
+.dk-selected {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
   background-color: transparent;
   color: white;
-  border: 1px solid white;
+  padding: 8.5% 12% !important;
+  border: 1px solid #cccccc;
+  border-radius: 0 !important;
   text-align: center;
 }
 
@@ -190,7 +198,7 @@ td > input {
   border-left: none;
   border-right: none;
   width: 18vw;
-  padding: 6.3% 1%;
+  padding: 10% 1%;
   background-color: transparent;
   color: white;
   text-align: center;
@@ -201,7 +209,7 @@ td {
 }
 
 td > button {
-  padding: 42% 80%;
+  padding: 62% 100%;
   color: white;
   background-color: #e53b51;
 }
@@ -218,9 +226,9 @@ td > select > option {
 }
 select:focus,
 input[type="text"]:focus {
-  background-color: transparent;
-  color: white;
-  outline: none;
+  background-color: transparent !important;
+  color: white !important;
+  outline: none !important;
 }
 input[type="text"]::placeholder {
   color: white;
@@ -235,11 +243,14 @@ td > button {
   border-bottom: 1px solid white;
   border-right: 1px solid white;
   display: flex;
-  /* width: 15vw; */
-  /* padding: 7.5% 1%; */
   background-color: #e53b51;
   color: white;
   text-align: center;
+}
+.dk-selected:after {
+  top: 17px;
+  bottom: 14px;
+  height: 46%;
 }
 .discriptionSession {
   padding: 2em 3em 0 2.55em;
@@ -262,12 +273,12 @@ td > button {
   margin-top: 10px !important;
 }
 
-.item_desc > h2,
-.item_desc > .para1 {
+.item_desc > .item_descs > h2,
+.item_desc > .item_descs > .para1 {
   margin: 0 !important;
 }
 
-.item_desc > h4 {
+.item_desc > .item_descs > h4 {
   margin-bottom: 10px !important;
 }
 
@@ -288,48 +299,57 @@ td > button {
   background-color: rgb(0, 162, 255);
 }
 
-.item_desc {
-  padding-top: 22% !important;
-  padding-bottom: 0 !important;
-  text-align: left;
+.item_desc > .item_descs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding-left: 6%;
+  /* padding-bottom: 6%; */
+  flex-direction: column;
+  /* position: relative;
+  bottom: -58%;
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding: 15px;
+  padding: 15px; */
 }
 
-.item_desc > h4 {
+.item_desc > .item_descs > h4 {
   font-size: 13.5px;
   color: #e53b51;
+  width: fit-content;
   background-color: white;
   padding: 2px 8px;
   border: none;
   border-radius: 5px;
-  margin-top: 37%;
 }
 
-.item_desc > h2 {
+.item_desc > .item_descs > h2 {
   font-size: 21px;
   font-style: normal !important;
   color: white;
 }
 
-.item_desc > p.para1 {
+.item_desc > .item_descs > p.para1 {
   font-size: 15px;
   color: #00acc1;
 }
 
-.item_desc > p.para2 {
+.item_desc > .item_descs > p.para2 {
   font-size: 13.5px;
   color: white;
 }
 
-.item_desc_feature {
+.item_desc_feature > .item_desc {
   display: flex;
   flex-direction: column;
   padding-left: 5%;
-  padding-top: 52%;
   margin: 0px;
+  position: absolute;
+  bottom: 5%;
+  left: 6%;
 }
 
 .item_feature {
@@ -337,22 +357,22 @@ td > button {
   width: 230px !important;
 }
 
-.item_desc_feature > p,
-.item_desc_feature > h2 {
+.item_desc_feature > .item_desc > p,
+.item_desc_feature > .item_desc > h2 {
   margin: 0;
   padding: 0;
 }
-.item_desc_feature > p {
+/* .item_desc_feature > .item_desc > p {
   margin-top: 38%;
-}
+} */
 
-.item_desc_feature > p {
+.item_desc_feature > .item_desc > p {
   font-size: 15px;
   color: #ff0021;
   margin-bottom: 8px;
 }
 
-.item_desc_feature > h2 {
+.item_desc_feature > .item_desc > h2 {
   font-size: 21px;
   color: white !important;
 }
@@ -366,7 +386,7 @@ td > button {
   left: 0 !important;
   font-size: 45px !important;
   color: white !important;
-  top: 35%;
+  top: 40%;
 }
 
 .owl-next {
@@ -374,7 +394,7 @@ td > button {
   right: 0 !important;
   font-size: 45px !important;
   color: white !important;
-  top: 35%;
+  top: 40%;
 }
 
 .footer > .logo > img {
@@ -408,18 +428,20 @@ td > button {
   width: 250px !important;
 }
 
-.item_afford {
-  padding-top: 46% !important;
-  padding-left: 5%;
+.item_afford > .item_descs {
+  /* padding-top: 46% !important; */
+  position: absolute;
+  bottom: 22%;
+  left: 5%;
 }
 
-.item_afford > span {
+.item_afford > .item_descs > span {
   font-size: 15px;
   margin: 0 !important;
   color: white !important;
 }
 
-.item_afford > .para12 {
+.item_afford > .item_descs > .para12 {
   margin: 3px 0 !important;
   font-size: 27px !important;
   color: #ff0021 !important;
@@ -433,14 +455,13 @@ td > button {
   padding: 0px 5px !important;
 }
 
-.item_afford > h5 {
+.item_afford > .item_descs > h5 {
   margin: 0 !important;
   font-size: 18px;
   color: white !important;
 }
 
 .items_afford > h6 {
-  margin-top: 5% !important;
   font-size: 13.5px;
   color: #ff0021 !important;
   margin-left: 5%;
@@ -483,29 +504,33 @@ td > button {
 
 a {
   text-decoration: none;
-  /* color-scheme: ; */
-}
-
-@media (min-width: 1562px) {
-  td > button {
-    padding: 49% 80%;
-  }
 }
 
 @media (min-width: 1820px) {
   td > button {
-    padding: 55% 80%;
+    padding: 83% 95%;
+  }
+}
+
+@media (min-width: 1562px) and (max-width: 1819px) {
+  td > button {
+    padding: 76% 100%;
   }
 }
 
 @media (min-width: 1221px) and( max-width:1521px) {
-  .item_desc > h4 {
-    margin-top: 22% !important;
+  td > select {
+    padding: 5% 7% !important;
   }
-
-  .item_desc_feature > p {
-    margin-top: 19%;
+  td > button {
+    padding: 44% 80%;
   }
+  td > input {
+    padding: 7% 1% !important;
+  }
+  /* .item_desc > .item_descs {
+    bottom: -41% !important;
+  } */
 }
 
 @media (min-width: 900px) and (max-width: 1230px) {
@@ -518,21 +543,15 @@ a {
   .introDiscription {
     margin-top: 18%;
   }
-
-  .item_desc > h4 {
-    margin-top: 20% !important;
-    margin-left: 5%;
-  }
-
-  .item_desc_feature > p {
-    margin-top: 20%;
-  }
   td > input {
-    padding: 6.9% 1%;
+    padding: 10.9% 1%;
   }
   td > button {
-    padding: 29% 58%;
+    padding: 53% 58%;
   }
+  /* .item_desc > .item_descs {
+    bottom: -50%;
+  } */
 }
 
 @media (min-width: 651px) and (max-width: 899px) {
@@ -578,46 +597,36 @@ a {
   .carousel-btn {
     font-size: 15px !important;
   }
-  .item_desc > p.para2,
-  .item_desc > h4,
+  .item_desc > .item_descs > p.para2,
+  .item_desc > .item_descs > h4,
   .items_afford > h6,
   .bottomTxt > h6 {
     font-size: 11.5px !important;
   }
 
-  .item_desc > h2,
-  .item_desc_feature > h2 {
+  .item_desc > .item_descs > h2,
+  .item_desc_feature > .item_desc > h2 {
     font-size: 19px !important;
   }
 
-  .item_desc > p.para1,
-  .item_desc_feature > p,
-  .item_afford > span,
+  .item_desc > .item_descs > p.para1,
+  .item_desc_feature > .item_desc > p,
+  .item_afford > .item_descs > span,
   .items_afford > .para2,
   .bottomTxt > .para2 {
     font-size: 13px !important;
   }
-  .item_afford > .para12 {
+  .item_afford > .item_descs > .para12 {
     font-size: 25px !important;
   }
-  .item_afford > h5 {
+  .item_afford > .item_descs > h5 {
     font-size: 16px !important;
   }
-
-  .item_desc > h4 {
-    margin-top: 26% !important;
-    margin-left: 6%;
-  }
-
-  .item_desc_feature > p {
-    margin-top: 24%;
-    margin-left: 6%;
-  }
   td > input {
-    padding: 7% 1%;
+    padding: 11.8% 1%;
   }
   td > button {
-    padding: 22% 58%;
+    padding: 44% 58%;
   }
 }
 
@@ -735,39 +744,30 @@ a {
   .carousel-btn {
     font-size: 13.5px !important;
   }
-  .item_desc > p.para2,
-  .item_desc > h4,
+  .item_desc > .item_descs > p.para2,
+  .item_desc > .item_descs > h4,
   .items_afford > h6,
   .bottomTxt > h6 {
     font-size: 10px !important;
   }
 
-  .item_desc > h2,
-  .item_desc_feature > h2 {
+  .item_desc > .item_descs > h2,
+  .item_desc_feature > .item_desc > h2 {
     font-size: 17px !important;
   }
 
-  .item_desc > p.para1,
-  .item_desc_feature > p,
-  .item_afford > span,
+  .item_desc > .item_descs > p.para1,
+  .item_desc_feature > .item_desc > p,
+  .item_afford > .item_descs > span,
   .items_afford > .para2,
   .bottomTxt > .para2 {
     font-size: 11px !important;
   }
-  .item_afford > .para12 {
+  .item_afford > .item_descs > .para12 {
     font-size: 23px !important;
   }
-  .item_afford > h5 {
+  .item_afford > .item_descs > h5 {
     font-size: 14px !important;
-  }
-
-  .item_desc > h4 {
-    margin-top: 20% !important;
-    margin-left: 5%;
-  }
-
-  .item_desc_feature > p {
-    margin-top: 20%;
   }
   tbody {
     display: flex;
@@ -781,21 +781,21 @@ a {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
   }
-  td > select,
+  /* td > select,
   td > input {
-    padding: 9.3% 0;
-    margin-left: -5px;
-    margin-bottom: 10%;
+    padding: 9.3% 0 !important;
+    margin-left: -5px !important;
+    margin-bottom: 10% !important;
     border: none;
-    color: black;
+    color: black !important;
     background-color: white;
-    width: 100%;
+    width: 100% !important;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-  }
-  td > input {
+  } */
+  /* td > input {
     padding: 9.8% 0;
-  }
+  } */
   tr {
     display: flex;
     flex-direction: column;
@@ -803,19 +803,56 @@ a {
   }
   td > button {
     padding: 10% 86%;
-    margin-left: -10.5rem;
-    border: 1px solid white;
+    margin: -6% 0 -3% -94%;
     border-radius: 12px;
   }
-  td > select > option,
-  td > select > option {
-    background-color: white !important;
+  .dk-selected:hover,
+  .dk-selected:focus {
+    outline: none;
+    /* border-color: #3297fd; */
+    border: none;
+    color: black;
+    height: 100%;
   }
 
+  td {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0;
+    background-color: white;
+    color: black;
+    padding: 2.3% 0 2% 0px;
+    margin-bottom: 10.3%;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 14px;
+    border: none;
+    margin-left: -2px;
+    margin-top: 1px;
+  }
+  td > input {
+    padding: 5.7% 1%;
+    margin-top: 2px;
+    color: black !important;
+    background-color: white;
+  }
   select:focus,
   input[type="text"]:focus {
-    background-color: white !important;
-    color: black !important;
+    background-color: white;
+    color: black;
     outline: none;
+  }
+  input[type="text"]::placeholder {
+    color: black;
+  }
+
+  input[type="text"]:focus::placeholder {
+    color: black;
+  }
+  input[type="text"]::placeholder {
+    color: black;
+  }
+
+  input[type="text"]:focus::placeholder {
+    color: black;
   }
 }

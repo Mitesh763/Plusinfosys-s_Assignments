@@ -14,7 +14,7 @@
 
 .offcanvas.offcanvas-top {
   top: 165px !important;
-  height: 47vh;
+  height: max-content;
 }
 
 .offcanvas-backdrop {
@@ -40,41 +40,6 @@
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.932) !important ;
 }
-
-.ui-slider-horizontal {
-  height: 0.6em;
-}
-.ui-slider-horizontal {
-  margin-bottom: 15px;
-  width: 100%;
-}
-.ui-widget-header {
-  background: #2ec4d7 !important;
-}
-
-.price-range-search {
-  width: 40.5%;
-  background-color: #f9f9f9;
-  border: 1px solid #6e6666;
-  min-width: 40%;
-  display: inline-block;
-  height: 32px;
-  border-radius: 5px;
-  float: left;
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-.price-range-field {
-  width: fit-content;
-  background-color: transparent;
-  border: none;
-  color: black;
-  font-family: myFont;
-  font: normal 14px Arial, Helvetica, sans-serif;
-  height: 26px;
-  padding: 5px;
-}
-
 .btn-clicked:hover {
   color: white !important;
   background-color: rgb(46 196 215) !important;
@@ -94,6 +59,29 @@ input[type="checkbox"]:checked {
 .BtnH:hover {
   font-weight: 600;
   text-shadow: 2px 2px gray;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(255, 255, 255, 0.712) !important;
+  font-weight: 900;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.form-select {
+  border-radius: 0 !important;
+  border: 1px solid #9ba0a5 !important;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -138,9 +126,9 @@ input[type="checkbox"]:checked {
     left: 0 !important;
     height: 100vh;
   }
-  .row,
-  .col-lg-4 {
-    border: none !important;
+  .swiper {
+    width: 95vw;
+    height: 100%;
   }
 }
 

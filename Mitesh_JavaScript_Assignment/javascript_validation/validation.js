@@ -96,42 +96,46 @@ function submitValidation(idArr) {
     alert("Select at least one interest");
     return false;
   }
-  if (document.querySelector(".inp").value.length <= 0) {
-    document.querySelector(".inp").classList.add("focusEle");
+  console.log(document.getElementById("inp").value.length);
+  if (
+    document.getElementById("other").checked === true &&
+    document.getElementById("inp").value.length <= 0
+  ) {
+    document.getElementById("inp").classList.add("focusEle");
     alert("Please enter your other interest");
     return false;
     // missingId += "\n" + idArr[7];
   }
   if (document.getElementById(idArr[8]).value.length <= 0) {
     document.getElementById(idArr[8]).classList.add("focusEle");
-    alert(idArr[8] + " is required");
+    alert("Job State 1 is required");
     return false;
     // missingId += "\n" + idArr[8];
   }
   if (document.getElementById(idArr[9]).value.length <= 0) {
     document.getElementById(idArr[9]).classList.add("focusEle");
-    alert(idArr[9] + " is required");
-    return false;
+    alert("Job City 1 is required");
+    // return false;
     // missingId += "\n" + idArr[9];
   }
 
-  idArr.map((id) => {
-    console.log(id);
-    if (document.getElementById(id).value.length <= 0) {
-      document.getElementById(id).classList.add("focusEle");
-      alert(id + " is required");
-      return false;
-      // missingId += "\n" + id;
-    } else {
-      document.getElementById(id).classList.remove("focusEle");
-    }
-  });
+  // idArr.map((id) => {
+  //   console.log(id);
+  //   if (document.getElementById(id).value.length <= 0) {
+  //     document.getElementById(id).classList.add("focusEle");
+  //     alert(id + " is required");
+  //     return false;
+  //     // missingId += "\n" + id;
+  //   } else {
+  //     document.getElementById(id).classList.remove("focusEle");
+  //   }
+  // });
 
-  if (missingId) {
-    alert(missingId + "\n\n are required fields");
-    missingId = "";
-    return false;
-  }
+  // if (missingId) {
+  //   alert(missingId + "\n\n are required fields");
+  //   missingId = "";
+  //   return false;
+  // }
 
   // let isCheck = false;
   // if (
@@ -189,7 +193,10 @@ otherBtn.addEventListener("click", () => {
   if (otherBtn.checked === true) {
     document.querySelector(".otherBtnArea").style.display = "block";
     document.querySelector(".inp").required = true;
-  } else document.querySelector(".otherBtnArea").style.display = "none";
+  } else {
+    document.querySelector(".otherBtnArea").style.display = "none";
+    document.querySelector(".inp").required = false;
+  }
 });
 
 let termCheck = document.querySelector("#checked1");
@@ -239,4 +246,15 @@ function selecteHandler2() {
     myOption.text = newCity[i];
     jobCity2.appendChild(myOption);
   }
+}
+
+function removeBdr() {
+  let allInputs = document.querySelectorAll("input");
+  allInputs.forEach((input) => {
+    input.classList.remove("focusEle");
+  });
+  let txtArea = document.querySelector("textarea");
+  txtArea.classList.remove("focusEle");
+  let selectes = document.querySelector("select");
+  selectes.classList.remove("focusEle");
 }
