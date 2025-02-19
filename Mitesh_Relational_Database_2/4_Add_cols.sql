@@ -1,0 +1,32 @@
+
+--T1
+ALTER TABLE tblCities ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date), UpdateBy INT 
+CONSTRAINT FK_tblCities_tblUsers FOREIGN KEY (UpdateBy) REFERENCES tblUsers(userId)
+NOT NULL DEFAULT 1
+go
+
+--T2
+ALTER TABLE tblRoles ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date), UpdateBy  INT 
+CONSTRAINT FK_tblRoles_tblUsers FOREIGN KEY (UpdateBy) REFERENCES tblUsers(userId)
+NOT NULL DEFAULT 1
+go
+
+--T3
+ALTER TABLE tblUsers ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date), UpdateBy VARCHAR(100)
+go
+
+--T4
+ALTER TABLE tblGroups ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date), UpdateBy  INT 
+CONSTRAINT FK_tblGroups_tblUsers2 FOREIGN KEY (UpdateBy) REFERENCES tblUsers(userId) 
+NOT NULL DEFAULT 1
+go
+
+--T5
+ALTER TABLE tblSubGroups ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date), UpdateBy  INT 
+CONSTRAINT FK_tblSubGroups_tblUsers2 FOREIGN KEY (UpdateBy) REFERENCES tblUsers(userId)
+NOT NULL DEFAULT 1
+go
+
+--T6
+ALTER TABLE tblGroupPosts ADD UpdatedDate DATE NOT NULL DEFAULT CAST(GETDATE() AS Date)
+go

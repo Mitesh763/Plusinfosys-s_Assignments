@@ -1,0 +1,5 @@
+-- DATABASE
+
+CREATE DATABASE PostDoc
+go
+use PostDoc
