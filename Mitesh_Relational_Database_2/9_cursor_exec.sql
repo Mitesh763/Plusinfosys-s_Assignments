@@ -12,7 +12,7 @@ OPEN cursorNameWithRole
 FETCH cursorNameWithRole INTO @firstName, @lastName, @role
 WHILE(@@FETCH_STATUS = 0)
 BEGIN
-	Print @firstName + ' ' + @lastName  + ' ' + @role + '.'
+	Print @firstName + ' ' + @lastName  + ' is ' + @role + '.'
 FETCH cursorNameWithRole INTO @firstName, @lastName, @role
 END
 

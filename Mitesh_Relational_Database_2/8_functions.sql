@@ -1,6 +1,6 @@
 
 
---UDF
+-- UDF
 
 -- scalar function
 CREATE FUNCTION fn_GetDate(@dateTime DATETIME)
@@ -23,3 +23,13 @@ AS
 			JOIN tblRoles r ON r.RoleId = u.[Role]
 			WHERE r.RoleName = @roleName
 		)
+
+go
+
+----execution
+
+--scalar function call
+SELECT dbo.fn_GetDate(GETDATE())
+
+-- inline table function call
+SELECT * FROM dbo.fn_PostByHR('HR')

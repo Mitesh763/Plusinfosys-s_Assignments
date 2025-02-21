@@ -1,7 +1,9 @@
 use PostDoc
 go
 
-CREATE PROCEDURE sp_Insert_tblCities
+
+-- 1
+CREATE PROCEDURE sp_tblCitiesInsert
 @City NVARCHAR(100)
 AS
 BEGIN
@@ -12,7 +14,7 @@ go
 
 
 -- 2
-CREATE PROCEDURE sp_Insert_tblRoles
+CREATE PROCEDURE sp_tblRolesInsert
 @Role NVARCHAR(100)
 AS
 BEGIN
@@ -22,7 +24,7 @@ END;
 go
 
 -- 3
-CREATE PROCEDURE sp_Insert_tblUsers
+CREATE PROCEDURE sp_tblUsersInsert
 @FirstName NVARCHAR(100),
 @LaststName NVARCHAR(100),
 @Role INT,
@@ -30,10 +32,10 @@ CREATE PROCEDURE sp_Insert_tblUsers
 @Password NVARCHAR(100),
 @PhoneNumber BIGINT,
 @Photo VARCHAR(MAX),
-@BirthDate DATE,
+@BirthDate DATETIME2,
 @Address NVARCHAR(MAX),
 @City iNT,
-@CreatedAt DATE,
+@CreatedAt DATETIME2,
 @IsActive BIT
 AS
 BEGIN
@@ -46,11 +48,11 @@ END;
 go
 
 -- 4
-CREATE PROCEDURE sp_Insert_tblGroups
+CREATE PROCEDURE sp_tblGroupsInsert
 @GroupName NVARCHAR(100),
 @Description NVARCHAR(MAX),
 @IsActive BIT,
-@CreatedAt DATE,
+@CreatedAt DATETIME2,
 @CreatedBy INT
 AS
 BEGIN
@@ -61,12 +63,12 @@ END;
 go
 
 --5
-CREATE PROCEDURE sp_Insert_tblSubGroups
+CREATE PROCEDURE sp_tblSubGroupsInsert
 @tblSubGroups NVARCHAR(100),
 @Group INT,
 @Description NVARCHAR(MAX),
 @IsActive BIT,
-@CreatedAt DATE,
+@CreatedAt DATETIME2,
 @CreatedBy INT
 AS
 BEGIN
@@ -76,8 +78,8 @@ BEGIN
 END;
 go
 
---5
-CREATE PROCEDURE sp_Insert_tblGroupPosts
+-- 6
+CREATE PROCEDURE sp_tblGroupPostInsert
 @PostedBy INT,
 @Title NVARCHAR(100),
 @Content NVARCHAR(MAX),
@@ -85,7 +87,7 @@ CREATE PROCEDURE sp_Insert_tblGroupPosts
 @Image2 NVARCHAR(MAX),
 @Reference INT,
 @LikeCount INT,
-@CreatedAt DATE
+@CreatedAt DATETIME2
 AS
 BEGIN
 	INSERT INTO tblGroupPosts (PostedBy,Title,Content,Image1,Image2,Reference,LikeCount,CreatedAt)
@@ -94,6 +96,8 @@ BEGIN
 END;
 go
 
+
+---- Select table by name
 CREATE PROCEDURE sp_Select_Anytable
 @tableName NVARCHAR(MAX)
 AS
