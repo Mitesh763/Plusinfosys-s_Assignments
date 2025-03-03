@@ -1,0 +1,248 @@
+public class User {
+    public string userName;
+    public string firstName;
+    public string lastName;
+}
+abstract  class Account
+{
+    public long accountNumber;
+    public double balence;
+    public User accountHolder;
+
+    //public Account(long accountNumber, double balence, User user)
+    //{
+    //    accountNumber = accountNumber;
+    //    this.balence = balence;
+    //    accountHolder = user;
+    //}
+
+    public abstract void Deposit(double amount);
+    public abstract void Withdrawel(double amount);
+
+    public void transfer(long acNumber, double amount)
+    {
+
+    }
+    public void transfer(long acNumber, double amount, string ifscCode)
+    {
+
+    }
+    public void fetchBalence()
+    {
+        Console.WriteLine($"Total balence: {balence}");
+    }
+}
+class SavingAccount : Account
+{
+    public SavingAccount(long accountNumber, double balence, User user)
+    {
+        accountNumber = accountNumber;
+        this.balence = balence;
+        accountHolder = user;
+    }
+    public override void Deposit(double amount)
+    {
+        if(amount <= 0)
+        {
+            Console.WriteLine("Invalid Amount!");
+            return;
+        }
+        if(amount + balence > 49000){
+            Console.WriteLine("Cannot deposit, Beacuse account limmit reached!");
+            return;
+        }
+        balence += amount;
+        return;
+    }
+    public override void Withdrawel(double amount)
+    {
+        if (amount <= 0)
+        {
+            Console.WriteLine("Invalid Amount!");
+            return;
+        }
+        if (balence - amount < 10000)
+        {
+            Console.WriteLine("Balence couldn't be less than 10000");
+            return;
+        }
+        balence -= amount;
+    }
+}
+
+class CurrentAccount : Account
+{
+
+    public CurrentAccount(long accountNumber, double balence, User user)
+    {
+        accountNumber = accountNumber;
+        this.balence = balence;
+        accountHolder = user;
+    }
+    public override void Deposit(double amount)
+    {
+        if (amount <= 0)
+        {
+            Console.WriteLine("Invalid Amount!");
+            return;
+        }
+        balence += amount;
+        return;
+    }
+    public override void Withdrawel(double amount)
+    {
+        if (amount <= 0)
+        {
+            Console.WriteLine("Invalid Amount!");
+            return;
+        }
+        if (balence - amount < 0)
+        {
+            Console.WriteLine("Shouldn't be have efficient Balence!");
+            return;
+        }
+        balence -= amount;
+    }
+}
+
+class Program
+{
+    public static void Main()
+    {
+        List<Account> accounts = new List<Account>();
+
+        Console.WriteLine("Welcome!");
+        while (true)
+        {
+            Console.WriteLine("\n\nSelect option for operation:");
+            Console.WriteLine("1. Create new Account");
+            Console.WriteLine("2. Deposit");
+            Console.WriteLine("3. Withdrawel");
+            Console.WriteLine("4. Transfer Money");
+            Console.WriteLine("5. Check Balences");
+            Console.WriteLine("6. Exit");
+
+            int option = int.Parse(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    CreateNewAccount();
+                    break;
+
+                case 2:
+                    Console.WriteLine("deposited");
+                    depositAmount();
+                    break;
+
+                case 3:
+                    Console.WriteLine("withdrawel");
+                    withrawelAmount();
+                    break;
+
+                case 4:
+                    Console.WriteLine("trasaction complete!");
+                    //transferMoney();
+                    break;
+
+                case 5:
+                    Console.WriteLine("your balence:");
+                    CheckBalence();
+                    break;
+
+                case 6:
+                    Console.WriteLine("tnx");
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid choice. Select correct Option!");
+                    break;
+            }
+        }
+
+        Console.WriteLine(accounts);
+        void CreateNewAccount() {
+            Console.Write("\nEnter First Name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Enter Last Name: ");
+            string lastName = Console.ReadLine();
+            Console.Write("Enter Username: ");
+            string userName = Console.ReadLine();
+            Console.Write("Enter Initial Balance: ");
+            double balance = double.Parse(Console.ReadLine());
+
+            Console.Write("Choose Account Type (1. Savings  2. Current): ");
+            int accType = int.Parse(Console.ReadLine());
+
+            long accountNumber = new Random().Next(1000, 9999);
+            User user = new User { userName = userName, firstName = firstName, lastName = lastName };
+
+            Account account;
+            if (accType == 1)
+                account = new SavingAccount(accountNumber, balance, user);
+            else
+                account = new CurrentAccount(accountNumber, balance, user);
+
+            accounts.Add(account);
+            Console.WriteLine($"Your account number is: {accountNumber}");
+            Console.WriteLine("Your account has beeen created!");
+        }
+
+        Account getUserAccount(long acNumber) {
+            Console.WriteLine(accounts.Find((acc) => acc.accountNumber == acNumber));
+            return accounts.Find(acc => acc.accountNumber == acNumber);
+        }
+
+        void depositAmount()
+        {
+            Console.Write("Enter account no: ");
+            long acno = long.Parse(Console.ReadLine());
+
+            Account ac = getUserAccount(acno);
+            if(ac != null)
+            {
+                Console.Write("Enter deposition Amount: ");
+                double amount = double.Parse(Console.ReadLine());
+                ac.Deposit(amount);
+            }
+            else
+            {
+                Console.WriteLine("Account doesn't exist!");
+            }
+            
+        }
+
+        void withrawelAmount()
+        {
+            Console.Write("Enter account no: ");
+            long acno = long.Parse(Console.ReadLine());
+
+            Account ac = getUserAccount(acno);
+            if (ac != null)
+            {
+                Console.Write("Enter Withdrawel Amount: ");
+                double amount = double.Parse(Console.ReadLine());
+                ac.Withdrawel(amount);
+            }
+            else
+            {
+                Console.WriteLine("Account doesn't exist!");
+            }
+           
+        }
+        void CheckBalence()
+        {
+            Console.Write("Enter account no: ");
+            long acno = long.Parse(Console.ReadLine());
+
+            Account ac = getUserAccount(acno);
+            if(ac != null)
+            {
+                ac.fetchBalence();
+            }
+            else
+            {
+                Console.WriteLine("Account doesn't exist!");
+            }
+        }
+    }
+}
