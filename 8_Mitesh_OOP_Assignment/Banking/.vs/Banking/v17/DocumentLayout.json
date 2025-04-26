@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|d:\\plusinfosys\\plusinfosys\u0027s_assignments\\mitesh_oop_assignment\\banking\\banking\\operationperform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|solutionrelative:banking\\operationperform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|d:\\plusinfosys\\plusinfosys\u0027s_assignments\\mitesh_oop_assignment\\banking\\banking\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|solutionrelative:banking\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|d:\\plusinfosys\\plusinfosys\u0027s_assignments\\mitesh_oop_assignment\\banking\\banking\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|solutionrelative:banking\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|d:\\plusinfosys\\plusinfosys\u0027s_assignments\\mitesh_oop_assignment\\banking\\banking\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10AA54C-801D-40F7-8417-8CCC21B02EFB}|Banking\\Banking.csproj|solutionrelative:banking\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "operationPerform.cs",
+              "DocumentMoniker": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\operationPerform.cs",
+              "RelativeDocumentMoniker": "Banking\\operationPerform.cs",
+              "ToolTip": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\operationPerform.cs",
+              "RelativeToolTip": "Banking\\operationPerform.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAIwNEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T07:43:22.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\Account.cs",
+              "RelativeDocumentMoniker": "Banking\\Account.cs",
+              "ToolTip": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\Account.cs",
+              "RelativeToolTip": "Banking\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T07:39:14.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\User.cs",
+              "RelativeDocumentMoniker": "Banking\\User.cs",
+              "ToolTip": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\User.cs",
+              "RelativeToolTip": "Banking\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T07:09:02.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\Program.cs",
+              "RelativeDocumentMoniker": "Banking\\Program.cs",
+              "ToolTip": "D:\\Plusinfosys\\Plusinfosys\u0027s_Assignments\\Mitesh_OOP_Assignment\\Banking\\Banking\\Program.cs",
+              "RelativeToolTip": "Banking\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T12:43:49.576Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
