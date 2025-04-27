@@ -1,0 +1,8 @@
+bin
+obj
+packages
+properties
+App.config
+EmployeeModal.edmx
+EmployeeModal.edmx.diagram
+packages.config
