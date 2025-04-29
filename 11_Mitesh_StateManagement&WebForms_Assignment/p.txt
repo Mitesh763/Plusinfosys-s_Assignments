@@ -1,0 +1,107 @@
+using System;
+using System.Web;
+
+namespace VolunteerOverseas
+{
+    public partial class project :baseClass
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack)
+            {
+                if (Session != null && Session["username"] != null)
+                {
+                    string username = Session["username"].ToString();
+
+                    if (Request.QueryString["projectid"] != null)
+                    {
+                        string projectId = Request.QueryString["projectid"];
+
+                        if (int.TryParse(projectId, out int validProjectId))
+                        {
+                            lblProjectId.Text = "Project ID: " + validProjectId;
+                        }
+                        else
+                        {
+                            lblProjectId.Text = "Invalid Project ID.";
+                        }
+                    }
+                    else
+                    {
+                        lblProjectId.Text = "No Project ID Provided.";
+                    }
+                }
+                else
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+            }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SearchPage/Search.aspx");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Web;
+
+namespace VolunteerOverseas
+{
+    public partial class project : baseClass
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Page.IsPostBack)
+            {
+                if (Session != null && Session["username"] != null)
+                {
+                    string username = Session["username"].ToString();
+
+                    if (Request.QueryString["projectid"] != null)
+                    {
+                        string projectId = Request.QueryString["projectid"];
+
+                        if (int.TryParse(projectId, out int validProjectId))
+                        {
+                            lblProjectId.Text = "Project ID: " + validProjectId;
+                        }
+                        else
+                        {
+                            lblProjectId.Text = "Invalid Project ID.";
+                        }
+                    }
+                    else
+                    {
+                        lblProjectId.Text = "No Project ID Provided.";
+                    }
+                }
+                else
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+            }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../SearchPage/Search.aspx");
+        }
+    }
+}
+
