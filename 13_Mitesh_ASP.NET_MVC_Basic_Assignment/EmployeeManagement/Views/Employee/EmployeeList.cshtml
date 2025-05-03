@@ -1,0 +1,67 @@
+﻿@model List<EmployeeManagement.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    if (TempData["updateMsg"] == "success")
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Employee Edited Successfully !</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["addMsg"] == "success")
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Employee Added Successfully !</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["deleteMsg"] == "success")
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Employee Disabled Successfully!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["deleteMsg"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed to disabling employee !</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+<h2 class="text-center mb-5">Employee List</h2>
+
+<div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+    @Html.ActionLink("Add New Employee", "EmployeeAddEdit", new { @area = "" }, new { @class = "btn btn-secondary ml-auto mb-5" })
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Sr No.</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Address</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Active</th>
+            <th scope="col">Department</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{Html.RenderPartial("_EmployeeList"); }
+    </tbody>
+</table>

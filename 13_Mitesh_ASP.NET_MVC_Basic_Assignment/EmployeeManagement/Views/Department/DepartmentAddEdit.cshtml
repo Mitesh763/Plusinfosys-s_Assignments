@@ -1,0 +1,51 @@
+﻿@model EmployeeManagement.Models.DepartmentModel
+
+@{
+    ViewBag.Title = "DepartmentAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    if (TempData["department"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>There are no any Department exist! </strong>
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["addMsg"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed to Add Department Already Exist! </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["updateMsg"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed to Edit Department Already Exist! </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+
+@Html.ActionLink("Back", "DepartmentList", new { @area = "" }, new { @class = "btn btn-outline-secondary mb-5" })
+
+<form class="d-flex align-items-center row flex-column justify-content-center ms-auto" method="post">
+
+    <h1 class="text-center mb-5">@ViewBag.header</h1>
+
+    <div class="col-12 px-0 my-2" style=" width: 21%;">
+        @Html.HiddenFor(m => m.DepartmentId)
+        <label for="name">Name: </label>
+        @Html.TextBoxFor(f => f.DepartmentName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-warning my-3 w-25 col-12" style="max-width:280px">Submit</button>
+</form>

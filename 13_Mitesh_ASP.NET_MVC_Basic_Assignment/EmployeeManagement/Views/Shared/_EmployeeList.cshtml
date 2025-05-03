@@ -1,0 +1,32 @@
+﻿@model List<EmployeeManagement.Models.EmployeeModel>
+
+@{ var srno = 1;}
+
+@foreach (var employee in Model)
+{
+    <tr>
+        <td>@srno</td>
+        <td>@employee.firstName</td>
+        <td>@employee.lastName</td>
+        <td>@employee.email</td>
+        <td>@employee.address</td>
+        <td>@employee.designation</td>
+        <td>@(employee.gender == true ? "Male" : "Female" )</td>
+        <td>@employee.salary</td>
+        <td>@(employee.IsActive == true ? "Yes" : "No" )</td>
+        <td>@employee.department</td>
+        <td style="display: flex; justify-content: center; gap:1rem">
+            @Html.ActionLink("Edit", "EmployeeAddEdit",
+                 new { id = employee.employeeId }, new { @class = "btn btn-warning" })
+
+            @Html.ActionLink("Delete", "DeleteEmployee", "Employee",
+                 new { id = employee.employeeId },
+                 new
+                 {
+                     @class = "btn btn-danger",
+                     onclick = $"return confirm('Confirm to Disable record of \"{employee.firstName + "  " + employee.lastName}\" ?');"
+                 })
+        </td>
+    </tr>
+    { srno += 1; }
+}

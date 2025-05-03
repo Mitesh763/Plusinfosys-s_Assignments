@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+
+    @{
+        if (TempData["department"] == "failed")
+        {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>There are no any Departmnets !</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        }
+    }
+    <h1 class="text-center mb-5">Welcome to Employee Management</h1>
+    <div class="row justify-content-center">
+        <div class="card col-4 me-5 border-0" style="width: 18rem;">
+            <img src="~/Content/Images/Department.jpg" class="card-img-top h-75" alt="department">
+            <div class="align-self-center card-body" style=" margin-top: 1.5rem !important;">
+                @Html.ActionLink("Department", "DepartmentList", "Department", new {@area =""},new { @class = "btn btn-outline-info" })
+            </div>
+        </div>
+
+        <div class="card col-4 border-0" style="width: 18rem;">
+            <img src="~/Content/Images/Employee.jpg" class="card-img-top" alt="employee">
+            <div class="align-self-center card-body">
+                @Html.ActionLink("Employee", "EmployeeList", "Employee", new { @area = "" }, new { @class = "btn btn-outline-info" })
+            </div>
+        </div>
+    </div>
+</main>

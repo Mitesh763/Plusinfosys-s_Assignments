@@ -1,0 +1,39 @@
+﻿@model EmployeeManagement.Models.UserModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (TempData["login"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Invalid Credentials! </strong> Please try again!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+
+<h2 class="text-center my-4">Login to Employee Management</h2>
+
+<form class="d-flex align-items-center flex-column justify-content-center ms-auto" method="post">
+
+    <h1 class="text-center mb-5">@ViewBag.header</h1>
+
+    <div class="form-group my-2 "  style=" width: 21%;">
+        @Html.HiddenFor(m => m.UserId)
+        <label for="name">Username: </label>
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control mb-4" })
+        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+
+
+        <label for="password">Password: </label>
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-warning my-3 w-25" style="max-width:280px">Submit</button>
+</form>
+
+

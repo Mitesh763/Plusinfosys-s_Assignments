@@ -1,0 +1,100 @@
+﻿@model EmployeeManagement.Models.EmployeeModel
+@{
+    ViewBag.Title = "EmployeeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (TempData["updateMsg"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed to Edit Employee!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    if (TempData["addMsg"] == "failed")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed to Add Employee!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+
+
+@Html.ActionLink("Back", "EmployeeList", new { @area = "" }, new { @class = "btn btn-outline-secondary mb-5" })
+
+<form class="d-flex align-items-center flex-column justify-content-center ms-auto" method="post">
+
+    <h1 class="text-center mb-5">@ViewBag.header</h1>
+
+    @Html.HiddenFor(f => f.employeeId)
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="firstName">First Name: </label>
+        @Html.TextBoxFor(f => f.firstName, new { @class = "form-control", Required = "required" })
+
+        @Html.ValidationMessageFor(m => m.firstName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="lstName">Last Name: </label>
+        @Html.TextBoxFor(f => f.lastName, new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(m => m.lastName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2"  style=" width: 21%;">
+        <label for="email">Email Address: </label>
+        @Html.TextBoxFor(f => f.email, new { @class = "form-control", Required = "required" })
+
+        @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="address">Address: </label>
+        @Html.TextAreaFor(f => f.address, new { @class = "form-control", Required = "required" })
+        @Html.ValidationMessageFor(m => m.address, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="designation">Designation: </label>
+        @Html.TextBoxFor(f => f.designation, new { @class = "form-control", Required = "required" })
+        @Html.ValidationMessageFor(m => m.designation, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="gender" class="me-3">Genedr: </label>
+
+        @Html.RadioButtonFor(m => m.gender, true, new { id = "male", Required = "required" })
+        <label for="male" class="me-2">Male</label>
+
+        @Html.RadioButtonFor(m => m.gender, false, new { id = "female", Required = "required" })
+        <label for="female">Female</label>
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="salary">Salary: </label>
+        @Html.TextBoxFor(f => f.salary, new { @class = "form-control", Required = "required" })
+        @Html.ValidationMessageFor(m => m.salary, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="acive" class="me-4">Active: </label>
+
+        @Html.RadioButtonFor(m => m.IsActive, true, new { id = "active", Required = "required" })
+        <label for="active" class="me-4">Yes</label>
+
+        @Html.RadioButtonFor(m => m.IsActive, false, new { id = "disactive", Required = "required" })
+        <label for="disactive">No</label>
+    </div>
+
+    <div class="form-group my-2" style=" width: 21%;">
+        <label for="department">Department: </label>
+        @Html.DropDownListFor(m => m.departmentId, ViewBag.Departments as SelectList, "Select Department", new { @class = "form-control", Required = "required" })
+        @Html.ValidationMessageFor(m => m.departmentId, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-warning my-3 w-25"  style="max-width:280px   ">Submit</button>
+</form>
